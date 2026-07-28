@@ -1,0 +1,298 @@
+/* /foundations/theme.css — GENERATED from /tokens/primitives.json + /tokens/semantic.json.
+   Do not edit by hand. Regenerate after any token change. */
+
+@import "tailwindcss";
+
+@theme {
+  /* =========================================================
+     PRIMITIVES — raw, immutable (owned by Figma)
+     ========================================================= */
+
+  /* --- brand (orange) --- */
+  --color-brand-50:  #fff4e5;
+  --color-brand-100: #ffeacc;
+  --color-brand-200: #ffd599;
+  --color-brand-300: #ffbf66;
+  --color-brand-400: #ffaa33;
+  --color-brand-500: #ff9500;
+  --color-brand-600: #cc7700;
+  --color-brand-700: #995900;
+  --color-brand-800: #663c00;
+  --color-brand-900: #331e00;
+  --color-brand-950: #241500;
+
+  /* --- neutral (warm gray) --- */
+  --color-neutral-50:  #f8f7f5;
+  --color-neutral-100: #f0efed;
+  --color-neutral-200: #e2e0db;
+  --color-neutral-300: #c7c4bc;
+  --color-neutral-400: #a09c94;
+  --color-neutral-500: #787470;
+  --color-neutral-600: #545250;
+  --color-neutral-700: #3a3835;
+  --color-neutral-800: #252420;
+  --color-neutral-900: #161512;
+  --color-neutral-950: #0d0c0a;
+
+  /* --- green (success) --- */
+  --color-green-50:  #edfaf3;
+  --color-green-100: #d4f3e4;
+  --color-green-200: #a5e6c6;
+  --color-green-300: #6dd4a3;
+  --color-green-400: #3dbd82;
+  --color-green-500: #1a9e52;
+  --color-green-600: #157f41;
+  --color-green-700: #0f6033;
+  --color-green-800: #0a4124;
+  --color-green-900: #052115;
+  --color-green-950: #02100a;
+
+  /* --- red (error) --- */
+  --color-red-50:  #fff0ee;
+  --color-red-100: #ffe0db;
+  --color-red-200: #ffbdb5;
+  --color-red-300: #ff9088;
+  --color-red-400: #ff5e55;
+  --color-red-500: #e53e2a;
+  --color-red-600: #c42e1c;
+  --color-red-700: #9b1f11;
+  --color-red-800: #6b1209;
+  --color-red-900: #3d0a05;
+  --color-red-950: #1f0803;
+
+  /* --- blue (info) --- */
+  --color-blue-50:  #eef4ff;
+  --color-blue-100: #dbe8ff;
+  --color-blue-200: #b5cfff;
+  --color-blue-300: #85afff;
+  --color-blue-400: #5588ff;
+  --color-blue-500: #2d6bf4;
+  --color-blue-600: #1a52d4;
+  --color-blue-700: #103ca8;
+  --color-blue-800: #0a2878;
+  --color-blue-900: #061549;
+  --color-blue-950: #030a24;
+
+  /* --- yellow (warning) --- */
+  --color-yellow-50:  #fffbea;
+  --color-yellow-100: #fff6c6;
+  --color-yellow-200: #ffec88;
+  --color-yellow-300: #ffdd4a;
+  --color-yellow-400: #ffcc18;
+  --color-yellow-500: #f5c518;
+  --color-yellow-600: #d4a80e;
+  --color-yellow-700: #a88007;
+  --color-yellow-800: #735403;
+  --color-yellow-900: #3d2c01;
+  --color-yellow-950: #1a1400;
+
+  /* =========================================================
+     SEMANTIC — intent aliases (LIGHT). Components use these.
+     ========================================================= */
+
+  /* backgrounds */
+  --color-background-primary:   var(--color-neutral-50);
+  --color-background-secondary: var(--color-neutral-100);
+  --color-background-tertiary:  var(--color-neutral-200);
+  --color-background-inverse:   var(--color-neutral-900);
+  --color-background-brand:     var(--color-brand-500);
+
+  /* content (text/icon) */
+  --color-content-primary:   var(--color-neutral-900);
+  --color-content-secondary: var(--color-neutral-600);
+  --color-content-tertiary:  var(--color-neutral-500);
+  --color-content-inverse:   var(--color-neutral-50);
+  --color-content-brand:     var(--color-brand-600);
+  --color-content-on-brand:  var(--color-neutral-950);
+
+  /* borders */
+  --color-border-subtle:  var(--color-neutral-200);
+  --color-border-default: var(--color-neutral-300);
+  --color-border-strong:  var(--color-neutral-400);
+  --color-border-brand:   var(--color-brand-500);
+
+  /* feedback */
+  --color-feedback-success: var(--color-green-500);
+  --color-feedback-error:   var(--color-red-500);
+  --color-feedback-info:    var(--color-blue-500);
+  --color-feedback-warning: var(--color-yellow-500);
+
+  /* feedback surfaces */
+  --color-feedback-surface-success: var(--color-green-50);
+  --color-feedback-surface-error:   var(--color-red-50);
+  --color-feedback-surface-info:    var(--color-blue-50);
+  --color-feedback-surface-warning: var(--color-yellow-50);
+
+  /* =========================================================
+     TYPOGRAPHY — families (EM Mendoza brand)
+     ========================================================= */
+  --font-display: "Clash Grotesk", "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans:    "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-body:    "Roboto", ui-sans-serif, system-ui, sans-serif;
+
+  /* --- font weights --- */
+  --font-weight-regular:  400;
+  --font-weight-medium:   500;
+  --font-weight-semibold: 600;
+  --font-weight-bold:     700;
+
+  /* =========================================================
+     TYPOGRAPHY SCALE — display / heading (Clash Grotesk)
+     Big, edge-hugging titles are the hero of the system.
+     size / line-height / letter-spacing per variant.
+     ========================================================= */
+
+  /* 9xl — portfolio-signature oversized editorial title */
+  --heading-9xl-size:           12rem;    /* 192px */
+  --heading-9xl-line-height:    8.875rem; /* 142px */
+  --heading-9xl-letter-spacing: -0.03em;
+
+  /* display — hero headlines */
+  --heading-display-2xl-size:           6rem;    /* 96px */
+  --heading-display-2xl-line-height:    6rem;    /* 96px */
+  --heading-display-2xl-letter-spacing: -0.03em;
+
+  --heading-display-xl-size:            4.5rem;  /* 72px */
+  --heading-display-xl-line-height:     4.5rem;  /* 72px */
+  --heading-display-xl-letter-spacing:  -0.025em;
+
+  --heading-display-lg-size:            3.75rem; /* 60px */
+  --heading-display-lg-line-height:     4rem;    /* 64px */
+  --heading-display-lg-letter-spacing:  -0.02em;
+
+  /* headings — section + block titles */
+  --heading-xl-size:            3rem;    /* 48px */
+  --heading-xl-line-height:     3.25rem; /* 52px */
+  --heading-xl-letter-spacing:  -0.02em;
+
+  --heading-lg-size:            2.25rem; /* 36px */
+  --heading-lg-line-height:     2.5rem;  /* 40px */
+  --heading-lg-letter-spacing:  -0.015em;
+
+  --heading-md-size:            1.875rem; /* 30px */
+  --heading-md-line-height:     2.25rem;  /* 36px */
+  --heading-md-letter-spacing:  -0.01em;
+
+  --heading-sm-size:            1.5rem;   /* 24px */
+  --heading-sm-line-height:     2rem;     /* 32px */
+  --heading-sm-letter-spacing:  -0.005em;
+
+  --heading-xs-size:            1.25rem;  /* 20px */
+  --heading-xs-line-height:     1.75rem;  /* 28px */
+  --heading-xs-letter-spacing:  0em;
+
+  /* =========================================================
+     TYPOGRAPHY SCALE — body / text (Roboto for long-form,
+     Space Grotesk for UI). Calm, high-contrast, easy to scan.
+     ========================================================= */
+  --text-xl-size:            1.25rem;  /* 20px */
+  --text-xl-line-height:     1.875rem; /* 30px */
+  --text-xl-letter-spacing:  0em;
+
+  --text-lg-size:            1.125rem; /* 18px */
+  --text-lg-line-height:     1.75rem;  /* 28px */
+  --text-lg-letter-spacing:  0em;
+
+  --text-md-size:            1rem;     /* 16px */
+  --text-md-line-height:     1.5rem;   /* 24px */
+  --text-md-letter-spacing:  0em;
+
+  --text-sm-size:            0.875rem; /* 14px */
+  --text-sm-line-height:     1.25rem;  /* 20px */
+  --text-sm-letter-spacing:  0em;
+
+  --text-xs-size:            0.75rem;  /* 12px */
+  --text-xs-line-height:     1rem;     /* 16px */
+  --text-xs-letter-spacing:  0.01em;
+
+  /* =========================================================
+     SPACING / RADIUS / SHADOW scales
+     ========================================================= */
+  --space-none: 0rem;
+  --space-xs:  0.25rem;
+  --space-sm:  0.5rem;
+  --space-md:  1rem;
+  --space-lg:  1.5rem;
+  --space-xl:  2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+
+  --radius-none: 0rem;
+  --radius-sm:  0.25rem;
+  --radius-md:  0.5rem;
+  --radius-lg:  0.75rem;
+  --radius-xl:  1rem;
+  --radius-full: 9999px;
+
+  --shadow-sm:   0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md:   0 4px 6px -1px rgb(0 0 0 / 0.10), 0 2px 4px -2px rgb(0 0 0 / 0.10);
+  --shadow-lg:   0 10px 15px -3px rgb(0 0 0 / 0.10), 0 4px 6px -4px rgb(0 0 0 / 0.10);
+  --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.10), 0 1px 2px -1px rgb(0 0 0 / 0.10);
+}
+
+/* =========================================================
+   SEMANTIC — DARK overrides (only semantic tokens change).
+   Applies via system preference OR manual [data-theme="dark"].
+   ========================================================= */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-background-primary:   var(--color-neutral-950);
+    --color-background-secondary: var(--color-neutral-900);
+    --color-background-tertiary:  var(--color-neutral-800);
+    --color-background-inverse:   var(--color-neutral-50);
+    --color-background-brand:     var(--color-brand-500);
+
+    --color-content-primary:   var(--color-neutral-50);
+    --color-content-secondary: var(--color-neutral-300);
+    --color-content-tertiary:  var(--color-neutral-400);
+    --color-content-inverse:   var(--color-neutral-900);
+    --color-content-brand:     var(--color-brand-400);
+    --color-content-on-brand:  var(--color-neutral-950);
+
+    --color-border-subtle:  var(--color-neutral-800);
+    --color-border-default: var(--color-neutral-700);
+    --color-border-strong:  var(--color-neutral-600);
+    --color-border-brand:   var(--color-brand-500);
+
+    --color-feedback-success: var(--color-green-400);
+    --color-feedback-error:   var(--color-red-400);
+    --color-feedback-info:    var(--color-blue-400);
+    --color-feedback-warning: var(--color-yellow-400);
+
+    --color-feedback-surface-success: var(--color-green-900);
+    --color-feedback-surface-error:   var(--color-red-900);
+    --color-feedback-surface-info:    var(--color-blue-900);
+    --color-feedback-surface-warning: var(--color-yellow-900);
+  }
+}
+
+/* Manual dark toggle (overrides system preference). */
+[data-theme="dark"] {
+  --color-background-primary:   var(--color-neutral-950);
+  --color-background-secondary: var(--color-neutral-900);
+  --color-background-tertiary:  var(--color-neutral-800);
+  --color-background-inverse:   var(--color-neutral-50);
+  --color-background-brand:     var(--color-brand-500);
+
+  --color-content-primary:   var(--color-neutral-50);
+  --color-content-secondary: var(--color-neutral-300);
+  --color-content-tertiary:  var(--color-neutral-400);
+  --color-content-inverse:   var(--color-neutral-900);
+  --color-content-brand:     var(--color-brand-400);
+  --color-content-on-brand:  var(--color-neutral-950);
+
+  --color-border-subtle:  var(--color-neutral-800);
+  --color-border-default: var(--color-neutral-700);
+  --color-border-strong:  var(--color-neutral-600);
+  --color-border-brand:   var(--color-brand-500);
+
+  --color-feedback-success: var(--color-green-400);
+  --color-feedback-error:   var(--color-red-400);
+  --color-feedback-info:    var(--color-blue-400);
+  --color-feedback-warning: var(--color-yellow-400);
+
+  --color-feedback-surface-success: var(--color-green-900);
+  --color-feedback-surface-error:   var(--color-red-900);
+  --color-feedback-surface-info:    var(--color-blue-900);
+  --color-feedback-surface-warning: var(--color-yellow-900);
+}

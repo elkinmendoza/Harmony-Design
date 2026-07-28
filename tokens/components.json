@@ -1,0 +1,68 @@
+{
+  "$description": "Harmony component tokens — component-scoped aliases. These reference SEMANTIC tokens only (color.*, space.*, radius.*, shadow.*, text.*, heading.*), never primitives. Emitted as CSS custom properties --{component}-{property}. Themes/verticals override semantic tokens; components rarely need overriding directly.",
+  "$conventions": {
+    "cssPattern": "--{component}-{property}",
+    "aliasTarget": "semantic",
+    "example": "button.primary.bg -> color.background.brand -> --button-primary-bg"
+  },
+  "button": {
+    "primary": {
+      "bg":       "color.background.brand",
+      "bgHover":  "color.content.brand",
+      "fg":       "color.content.onBrand",
+      "border":   "color.border.brand",
+      "radius":   "radius.md",
+      "paddingX": "space.lg",
+      "paddingY": "space.sm",
+      "font":     "text.sm"
+    },
+    "secondary": {
+      "bg":       "color.background.secondary",
+      "bgHover":  "color.background.tertiary",
+      "fg":       "color.content.primary",
+      "border":   "color.border.default",
+      "radius":   "radius.md",
+      "paddingX": "space.lg",
+      "paddingY": "space.sm",
+      "font":     "text.sm"
+    },
+    "ghost": {
+      "bg":       "transparent",
+      "bgHover":  "color.background.secondary",
+      "fg":       "color.content.primary",
+      "border":   "transparent",
+      "radius":   "radius.md",
+      "paddingX": "space.md",
+      "paddingY": "space.sm",
+      "font":     "text.sm"
+    }
+  },
+  "input": {
+    "bg":            "color.background.primary",
+    "fg":            "color.content.primary",
+    "placeholder":   "color.content.tertiary",
+    "border":        "color.border.default",
+    "borderFocus":   "color.border.brand",
+    "borderError":   "color.feedback.error",
+    "radius":        "radius.md",
+    "paddingX":      "space.md",
+    "paddingY":      "space.sm",
+    "font":          "text.md"
+  },
+  "card": {
+    "bg":       "color.background.primary",
+    "border":   "color.border.subtle",
+    "fg":       "color.content.primary",
+    "radius":   "radius.lg",
+    "padding":  "space.xl",
+    "shadow":   "shadow.card"
+  },
+  "badge": {
+    "bg":       "color.background.brand",
+    "fg":       "color.content.onBrand",
+    "radius":   "radius.full",
+    "paddingX": "space.sm",
+    "paddingY": "space.xs",
+    "font":     "text.xs"
+  }
+}

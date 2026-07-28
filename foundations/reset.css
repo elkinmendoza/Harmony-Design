@@ -1,0 +1,41 @@
+/* /foundations/reset.css — base layer for Harmony.
+   Minimal, opinionated reset built on top of Tailwind's Preflight.
+   Applies Harmony semantic tokens to the document baseline. */
+
+@layer base {
+  :root {
+    color-scheme: light dark;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--color-background-primary);
+    color: var(--color-content-primary);
+    margin: 0;
+    min-height: 100dvh;
+  }
+
+  /* Respect reduced motion preferences globally. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Consistent, visible focus using the brand border token. */
+  :focus-visible {
+    outline: 2px solid var(--color-border-brand);
+    outline-offset: 2px;
+  }
+}
