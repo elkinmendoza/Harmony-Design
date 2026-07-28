@@ -237,4 +237,3 @@ the sync procedure so the rest of the system stays truthful.
 - v0.2.0 — restructured to the community DESIGN.md convention (added §7 Accessibility,
   §8 Design tokens reference, §9 Do not do); no value duplication.
 - v0.1.0 — initial foundation (palette, typography, spacing, principles, scope).
-- _(log every design-language decision change here.)_
