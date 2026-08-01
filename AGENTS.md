@@ -138,7 +138,7 @@ Figma Variables
       │  (alias)
       ▼
 2. SEMANTIC     color.background.primary, color.content.primary,
-                color.border.subtle, color.feedback.error   (intent)
+                color.border.subtle, color.status.negative   (intent)
       │  (scope)
       ▼
 3. COMPONENT    button.primary.bg, card.shadow, input.border  (component-local)
@@ -200,10 +200,10 @@ Skeleton the agent must follow:
   --color-background-primary: var(--color-neutral-50);
   --color-content-primary:    var(--color-neutral-900);
   --color-border-subtle:      var(--color-neutral-200);
-  --color-feedback-error:     var(--color-red-500);
-  --color-feedback-success:   var(--color-green-500);
-  --color-feedback-info:      var(--color-blue-500);
-  --color-feedback-warning:   var(--color-yellow-500);
+  --color-status-negative:    var(--color-red-500);
+  --color-status-positive:    var(--color-green-500);
+  --color-status-info:        var(--color-blue-500);
+  --color-status-notice:      var(--color-yellow-500);
 
   /* --- spacing / radius / typography scales --- */
   --space-xs: 0.25rem; --space-sm: 0.5rem; --space-md: 1rem;

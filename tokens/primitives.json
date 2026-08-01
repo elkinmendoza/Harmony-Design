@@ -480,5 +480,106 @@
         }
       }
     }
+  },
+  {
+    "Unit": {
+      "modes": {
+        "Mode 1": {
+          "2":   { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 2 },
+          "4":   { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 4 },
+          "8":   { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 8 },
+          "10":  { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 10 },
+          "12":  { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 12 },
+          "14":  { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 14 },
+          "16":  { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 16 },
+          "18":  { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 18 },
+          "20":  { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 20 },
+          "24":  { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 24 },
+          "26":  { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 26 },
+          "28":  { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 28 },
+          "30":  { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 30 },
+          "32":  { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 32 },
+          "34":  { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 34 },
+          "36":  { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 36 },
+          "40":  { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 40 },
+          "48":  { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 48 },
+          "52":  { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 52 },
+          "56":  { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 56 },
+          "60":  { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 60 },
+          "64":  { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 64 },
+          "72":  { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 72 },
+          "80":  { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 80 },
+          "88":  { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 88 },
+          "96":  { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 96 },
+          "104": { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 104 },
+          "112": { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 112 },
+          "120": { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 120 },
+          "142": { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 142 },
+          "192": { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 192 }
+        }
+      }
+    }
+  },
+  {
+    "Primitive: Type": {
+      "modes": {
+        "Mode 1": {
+          "family": {
+            "clash-grotesk": { "$scopes": ["ALL_SCOPES"], "$type": "string", "$value": "Clash Grotesk" },
+            "space-grotesk": { "$scopes": ["ALL_SCOPES"], "$type": "string", "$value": "Space Grotesk" },
+            "roboto": { "$scopes": ["ALL_SCOPES"], "$type": "string", "$value": "Roboto" }
+          },
+          "weight": {
+            "regular": { "$scopes": ["ALL_SCOPES"], "$type": "string", "$value": "Regular" },
+            "medium": { "$scopes": ["ALL_SCOPES"], "$type": "string", "$value": "Medium" },
+            "semi-bold": { "$scopes": ["ALL_SCOPES"], "$type": "string", "$value": "Semi Bold" },
+            "bold": { "$scopes": ["ALL_SCOPES"], "$type": "string", "$value": "Bold" }
+          },
+          "letter-spacing": {
+            "2xs": { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": -2.88 },
+            "xs": { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": -1.8 },
+            "s": { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": -1.2 },
+            "m": { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": -0.96 },
+            "l": { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": -0.54 },
+            "xl": { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": -0.3 },
+            "2xl": { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": -0.12 },
+            "none": { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 0 },
+            "positive": { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 0.12 }
+          },
+          "size": {
+            "xs": { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 12, "$alias": "Unit/12" },
+            "s": { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 14, "$alias": "Unit/14" },
+            "m": { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 16, "$alias": "Unit/16" },
+            "l": { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 18, "$alias": "Unit/18" },
+            "xl": { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 20, "$alias": "Unit/20" },
+            "2xl": { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 24, "$alias": "Unit/24" },
+            "3xl": { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 30, "$alias": "Unit/30" },
+            "4xl": { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 36, "$alias": "Unit/36" },
+            "5xl": { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 48, "$alias": "Unit/48" },
+            "6xl": { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 60, "$alias": "Unit/60" },
+            "7xl": { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 72, "$alias": "Unit/72" },
+            "8xl": { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 96, "$alias": "Unit/96" },
+            "9xl": { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 192, "$alias": "Unit/192" },
+            "10xl": { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 192, "$alias": "Unit/192" }
+          },
+          "line-height": {
+            "xs": { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 16, "$alias": "Unit/16" },
+            "s": { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 20, "$alias": "Unit/20" },
+            "m": { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 24, "$alias": "Unit/24" },
+            "l": { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 28, "$alias": "Unit/28" },
+            "xl": { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 30, "$alias": "Unit/30" },
+            "2xl": { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 32, "$alias": "Unit/32" },
+            "3xl": { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 36, "$alias": "Unit/36" },
+            "4xl": { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 40, "$alias": "Unit/40" },
+            "5xl": { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 52, "$alias": "Unit/52" },
+            "6xl": { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 64, "$alias": "Unit/64" },
+            "7xl": { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 72, "$alias": "Unit/72" },
+            "8xl": { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 96, "$alias": "Unit/96" },
+            "9xl": { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 96, "$alias": "Unit/96" },
+            "10xl": { "$scopes": ["ALL_SCOPES"], "$type": "number", "$value": 142, "$alias": "Unit/142" }
+          }
+        }
+      }
+    }
   }
 ]

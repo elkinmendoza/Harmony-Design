@@ -43,7 +43,7 @@
     "placeholder":   "color.content.tertiary",
     "border":        "color.border.default",
     "borderFocus":   "color.border.brand",
-    "borderError":   "color.feedback.error",
+    "borderError":   "color.status.negative",
     "radius":        "radius.md",
     "paddingX":      "space.md",
     "paddingY":      "space.sm",

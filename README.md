@@ -99,9 +99,9 @@ Harmony/
 ```
 Figma Variables
       ↓
-tokens/primitives.json     raw colour hex — owned by Figma, never invent
+tokens/primitives.json     raw colour, typography, and unit values — owned by Figma, never invent
       ↓
-tokens/semantic.json       intent aliases: background, content, border, feedback
+tokens/semantic.json       intent aliases: background, surface, overlay, content, border, status
       ↓
 tokens/components.json     component-scoped aliases — reference semantic only
       ↓
@@ -339,7 +339,9 @@ Big, editorial titles are the hero of Harmony. Tokenised as
 | Yellow | Warning | `#f5c518` |
 
 Semantic roles: `--color-background-primary`, `--color-content-primary`,
-`--color-border-subtle`, `--color-feedback-error`, etc.
+`--color-border-subtle`, `--color-status-negative`, `--color-surface-raised`,
+`--color-overlay-scrim`, plus interaction states (`--color-background-hover`,
+`--color-border-focus`), etc.
 
 ---
 

@@ -27,8 +27,15 @@
 ## Rules
 - Primitives: 6 families (Brand, Neutral, Green, Red, Blue, Yellow), scale 50–950,
   `500` is the family anchor. Do not add families or alter hex in code.
-- Semantic tokens alias primitives via intent (`background`, `content`, `border`,
-  `feedback.{error|success|info|warning}`). Light + dark are two semantic sets.
+- Semantic tokens alias primitives via intent (`background`, `surface`, `overlay`,
+  `content`, `border`, `status.{positive|negative|notice|info}`,
+  `statusSurface.*`). Light + dark are two semantic sets.
+- Interaction states are semantic suffixes: `hover` / `pressed` / `selected` /
+  `disabled` / `focus` (e.g. `background.hover`, `border.focus`, `content.disabled`).
+- `overlay.*` tokens carry an `alpha` (0–1) and emit as `color-mix()` over a neutral
+  primitive — the one place a semantic token is not a plain alias.
+- Status naming is `positive` (green) / `negative` (red) / `notice` (yellow) /
+  `info` (blue). Do **not** reintroduce `feedback.*` / `success` / `error` / `warning`.
 - Component tokens alias semantic tokens only — never primitives directly.
 - Adding a token → add at the correct layer, then regenerate `theme.css`
   (see `.devin/workflows/docs-sync.md`), never hand-edit `theme.css`.

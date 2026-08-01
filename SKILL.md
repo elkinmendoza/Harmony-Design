@@ -175,7 +175,8 @@ variables; web uses CSS custom properties + the project's styling layer).
 
 Before building components, ensure these foundations exist in Figma as variables:
 
-- Color scales + semantic roles (background, content, border, feedback).
+- Color scales + semantic roles (background, surface, overlay, content, border,
+  status/status-surface), each with interaction states (hover/pressed/selected/disabled/focus).
 - Type scale (display, heading levels, body, caption) with line-height and
   letter-spacing tokens.
 - Spacing scale (4/8pt), radius scale, elevation/shadow scale.

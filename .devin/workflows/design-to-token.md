@@ -13,7 +13,8 @@ Use when a new/updated spec arrives from Figma and must land as tokens.
    - Exists → reuse.
    - Missing + genuinely primitive → STOP, request export from Figma (do not invent).
 5. Map new/changed values to intent aliases in `tokens/semantic.json`
-   (`background` / `content` / `border` / `feedback.*`). Keep light + dark in sync.
+   (`background` / `surface` / `overlay` / `content` / `border` / `status.*` /
+   `statusSurface.*`, with interaction-state suffixes). Keep light + dark in sync.
 6. If a value is component-specific, add it to `tokens/components.json` aliasing
    semantic tokens (never primitives).
 // turbo

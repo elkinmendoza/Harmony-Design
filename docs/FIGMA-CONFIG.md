@@ -11,15 +11,17 @@
 
 ## 1. Variable collections (structure)
 
-Four collections. Each variable carries **scopes** (where it can be applied) and a
+Six collections. Each variable carries **scopes** (where it can be applied) and a
 **WEB code syntax** string (the CSS var an agent should emit).
 
 | Collection | Modes | Types | Code syntax pattern |
 | --- | --- | --- | --- |
 | **Colour** (primitives) | Mode 1 | COLOR | `--color-{family}-{step}` |
-| **Semantic** | Light, Dark | COLOR (alias → Colour) | `--color-{role}` |
-| **Scale** | Mode 1 | FLOAT (px) | `--space-{name}`, `--radius-{name}` |
-| **Typography** | Mode 1 | STRING + FLOAT | `--font-*`, `--text-*`, `--heading-*` |
+| **Primitive: Type** | Mode 1 | STRING + FLOAT (alias → Unit) | `Family/*`, `Weight/*`, `Size/*`, `Line Height/*`, `Letter Spacing/*` |
+| **Unit** (primitives) | Mode 1 | FLOAT (px) | `Unit/{value}` |
+| **Scale** (primitives) | Mode 1 | FLOAT (px) | `--space-{name}`, `--radius-{name}` |
+| **Semantic: Colour** | Light, Dark | COLOR (alias → Colour) | `--color-{role}` |
+| **Semantic: Type Web** | Mode 1 | STRING + FLOAT (alias → Primitive: Type) | `Heading/{size}/Semibold/{prop}`, `Text/{size}/{weight}/{prop}` |
 
 ### 1.1 Colour (primitives)
 - 6 families × 11 steps (50–950): Brand, Neutral, Green, Red, Blue, Yellow.
@@ -27,26 +29,41 @@ Four collections. Each variable carries **scopes** (where it can be applied) and
 - Scope: fills + strokes. Code syntax: `--color-brand-500`, etc.
 
 ### 1.2 Semantic (Light / Dark)
-- Every variable is an **alias** to a Colour primitive — no raw hex.
+- Every variable is an **alias** to a Colour primitive — no raw hex — except
+  `overlay/*`, which store a concrete RGBA (neutral primitive + alpha) since Figma
+  aliases can't carry opacity.
 - Two modes: `Light` and `Dark`. Same variable, different primitive per mode.
 - Roles (match `tokens/semantic.json`):
-  - `background/{primary,secondary,tertiary,inverse,brand}`
-  - `content/{primary,secondary,tertiary,inverse,brand,onBrand}`
-  - `border/{subtle,default,strong,brand}`
-  - `feedback/{success,error,info,warning}`
-  - `feedbackSurface/{success,error,info,warning}`
-- Code syntax: `--color-content-primary`, `--color-feedback-error`, …
+  - `background/{primary,secondary,tertiary,inverse,hover,pressed,selected,disabled,brand,brand-hover,brand-pressed,brand-disabled}`
+  - `surface/{default,raised,sunken,overlay}`
+  - `overlay/{scrim,backdrop,hover,pressed}` (RGBA, alpha-based)
+  - `content/{primary,secondary,tertiary,inverse,disabled,brand,on-brand,positive,negative,notice,info,on-positive,on-negative,on-notice,on-info}`
+  - `border/{subtle,default,strong,hover,focus,selected,disabled,brand,positive,negative,notice,info}`
+  - `status/{positive,negative,notice,info}`
+  - `status-surface/{positive,negative,notice,info}`
+- Code syntax: `--color-content-primary`, `--color-status-negative`,
+  `--color-background-brand-hover`, `--color-overlay-scrim`, …
 
 ### 1.3 Scale
 - Spacing: `none,xs,sm,md,lg,xl,2xl,3xl` (px FLOAT). Code: `--space-md`.
 - Radius: `none,sm,md,lg,xl,full`. Code: `--radius-lg`.
 
-### 1.4 Typography
-- Families (STRING): `display` (Clash Grotesk), `sans` (Space Grotesk), `body` (Roboto).
-  Code: `--font-display`, `--font-sans`, `--font-body`.
-- Weights (FLOAT): 400/500/600/700.
-- Size / line-height / letter-spacing (FLOAT px) per `text-*` and `heading-*` variant.
-  Code: `--text-md-size`, `--heading-xl-line-height`, …
+### 1.4 Unit primitives (`Unit`)
+- Numeric step scale (FLOAT px): `Unit/2`, `Unit/4`, `Unit/8`, `Unit/10`, `Unit/12`, `Unit/14`, `Unit/16`, `Unit/18`, `Unit/20`, `Unit/24`, `Unit/26`, `Unit/28`, `Unit/30`, `Unit/32`, `Unit/34`, `Unit/36`, `Unit/40`, `Unit/48`, `Unit/52`, `Unit/56`, `Unit/60`, `Unit/64`, `Unit/72`, `Unit/80`, `Unit/88`, `Unit/96`, `Unit/104`, `Unit/112`, `Unit/120`, `Unit/142`, `Unit/192`.
+- Consumed by `Primitive: Type` and `Scale`.
+
+### 1.5 Primitive: Type (`Primitive: Type`)
+- Family (STRING): `Family/Clash Grotesk`, `Family/Space Grotesk`, `Family/Roboto`.
+- Weight (STRING): `Weight/Regular`, `Weight/Medium`, `Weight/Semi Bold`, `Weight/Bold`.
+- Size (FLOAT px, alias → `Unit/*`): `Size/XS` to `Size/10XL` by shirt-size naming.
+- Line Height (FLOAT px, alias → `Unit/*`): `Line Height/XS` to `Line Height/10XL` by shirt-size naming.
+- Letter Spacing (FLOAT %): `Letter Spacing/2XS` (-2.88), `Letter Spacing/XS` (-1.8), `Letter Spacing/S` (-1.2), `Letter Spacing/M` (-0.96), `Letter Spacing/L` (-0.54), `Letter Spacing/XL` (-0.3), `Letter Spacing/2XL` (-0.12), `Letter Spacing/None` (0), `Letter Spacing/Positive` (0.12).
+
+### 1.6 Semantic: Type Web (`Semantic: Type Web`)
+- All variables alias `Primitive: Type`.
+- Heading roles: `Heading/{5XL..2XS}/Semibold/{Weight,Size,Line Height,Letter Spacing}`.
+- Text roles: `Text/{XL..XS}/{Regular,Semibold}/{Weight,Size,Line Height,Letter Spacing}`.
+- Code mirrors the FDS convention: `--heading-5xl-size`, `--text-xl-regular-size`, etc.
 
 ---
 
