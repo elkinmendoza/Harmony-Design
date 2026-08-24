@@ -9,7 +9,7 @@
 > - Figma AI design → `SKILL.md`
 > - Figma structure → `docs/FIGMA-CONFIG.md`
 > - Token values → `tokens/*.json` + `foundations/theme.css`
-> - **When this file changes → run `.devin/workflows/design-language-sync.md`.**
+> - **When this file changes → run `.devin/skills/design-language-sync/SKILL.md`.**
 
 ---
 
@@ -125,6 +125,44 @@ Common thread: **big titles, organised layouts, effortless readability**.
 - Display can be oversized + tightly tracked; body stays calm and legible.
 - Never mix more than one display family in a single composition.
 
+### Font family semantic tokens & binding rules
+
+Harmony uses three font families, each exposed as a **semantic variable** that all
+text nodes must bind to — never hardcode a font family string directly.
+
+| Family | Semantic token | Primitive alias | Role |
+| --- | --- | --- | --- |
+| Clash Grotesk | `font/display` | `family/display` | Display & heading type (h1–h6, hero titles) |
+| Space Grotesk | `font/sans` | `family/sans` | UI labels, captions, small text, navigation |
+| **Roboto** | **`font/body`** | **`family/body`** | **Body text, paragraphs, descriptions, form inputs** |
+
+**Binding rule:** Every text node in Figma must bind its `fontFamily` property to the
+appropriate semantic token (`font/display`, `font/sans`, or `font/body`) via
+`node.setBoundVariable("fontFamily", variable)`. Raw family strings ("Roboto",
+"Clash Grotesk", "Space Grotesk") must never appear as unbound hardcoded values.
+
+**Font weight tokens:** Font weights are also tokenised and must be bound:
+
+| Weight name | Semantic token | Numeric value |
+| --- | --- | --- |
+| Regular | `font-weight/regular` | 400 |
+| Medium | `font-weight/medium` | 500 |
+| SemiBold | `font-weight/semibold` | 600 |
+| Bold | `font-weight/bold` | 700 |
+
+Every text node must bind `fontWeight` via `node.setBoundVariable("fontWeight", variable)`.
+
+**Complete text node binding checklist (all mandatory):**
+
+| Property | Token source | Example binding |
+| --- | --- | --- |
+| `fontFamily` | `font/display`, `font/sans`, `font/body` | `node.setBoundVariable("fontFamily", fontBodyVar)` |
+| `fontWeight` | `font-weight/regular` … `font-weight/bold` | `node.setBoundVariable("fontWeight", weightVar)` |
+| `fontSize` | `heading.*/size`, `text.*/size` | `node.setBoundVariable("fontSize", sizeVar)` |
+| `lineHeight` | `heading.*/line-height`, `text.*/line-height` | `node.setBoundVariable("lineHeight", lhVar)` |
+| `letterSpacing` | `heading.*/letter-spacing`, `text.*/letter-spacing` | `node.setBoundVariable("letterSpacing", lsVar)` |
+| Fill color | `content/primary`, `content/secondary`, etc. | `figma.variables.setBoundVariableForPaint(fill, "color", colorVar)` |
+
 ### Spacing & rhythm
 - Base unit **4pt**; steps 8/16/24/32/48/64. Use `space-*` tokens — no arbitrary values.
 - Large vertical gaps between sections, tight gaps inside components.
@@ -134,7 +172,13 @@ Common thread: **big titles, organised layouts, effortless readability**.
 - Shadows are functional (cards, dropdowns), not decorative.
 
 ### Iconography
-Lucide, 1.5 stroke, 24x24 default / 20x20 compact
+- **Library:** **Material Design Icons** (https://pictogrammers.com/library/mdi/).
+- **Style:** Filled by default for UI clarity; outline only when the component spec explicitly calls for it.
+- **Sizing:** `24x24` default / `20x20` compact / `16x16` inline / `32x32` feature.
+- **Stroke / geometry:** Use the SVG as-is; do not modify the path stroke or weight.
+- **Naming:** Reference icons by their MDI name (`mdi-{name}`), e.g. `mdi-arrow-right`, `mdi-menu`, `mdi-close`, `mdi-chevron-down`.
+- **Icon tokens in Figma:** use the existing `Icon` component set (`ui/Icon`) with size variants `sm(16)`, `md(20)`, `lg(24)`, `xl(32)` and swap the icon instance from the MDI library.
+- **Accessibility:** icon-only controls must have an accessible name; decorative icons must have no semantic label.
 
 ### Imagery & media
 - Photography: high-contrast, editorial crops, human/product context.
@@ -278,6 +322,9 @@ AI tools tend to *add*. These constraints protect the product from drift:
 - **Don't** all-caps body text, centre paragraphs > 2 lines, or leave lorem ipsum in mocks.
 - **Don't** auto-play distracting motion or omit a reduced-motion fallback.
 - **Don't** treat `/inspirations/` imagery as a token or value source.
+- **Don't** hardcode font family strings ("Roboto", "Clash Grotesk", "Space Grotesk") — always bind to the semantic token (`font/body`, `font/display`, `font/sans`).
+- **Don't** leave `fontWeight` unbound — every text node must reference a `font-weight/*` variable.
+- **Don't** leave any typography property (size, line-height, letter-spacing) as a raw number — bind to the corresponding semantic typography variable.
 
 ---
 
@@ -303,9 +350,21 @@ the sync procedure so the rest of the system stays truthful.
 | Brand voice / audience / scope | `AGENTS.md` §0.1, `SKILL.md` §2–3 | manual edit |
 | Any principle affecting agents | `.devin/rules/harmony-core.md` (brand invariants) | manual edit |
 
-**Always run `.devin/workflows/design-language-sync.md` after editing this file.**
+**Always run `.devin/skills/design-language-sync/SKILL.md` after editing this file.**
 
 ## 12. Version & changelog
+- v0.7.0 — full agentic system audit: migrated `.devin/workflows/` to
+  `.devin/skills/*/SKILL.md` across all docs, cleaned 12 outlier Unit tokens from
+  `primitives.json`, added `radius.2xl`/`radius.3xl` to semantic scale, fully
+  regenerated `theme.css` with correct `status` naming (removed legacy `feedback`),
+  added missing semantic token groups (surface, overlay, interaction states,
+  content status, border status), fixed naming convention examples in
+  `.devin/rules/tokens.md` and `AGENTS.md`. SKILL.md bumped to v0.3.0.
+- v0.6.0 — added §4 "Font family semantic tokens & binding rules" subsection
+  documenting mandatory `font/body` (Roboto), `font/display` (Clash Grotesk),
+  `font/sans` (Space Grotesk) bindings, font-weight token table, and complete
+  text-node binding checklist. Added 3 new "Do not do" constraints for unbound
+  font properties.
 - v0.5.0 — split Figma typography variables into `Typography` and `Unit` primitive
   collections (`family`, `weight`, `line-height`, `letter-spacing`, and `size`) and
   re-aliased the entire `Semantic: Typography` collection to those primitives.

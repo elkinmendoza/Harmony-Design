@@ -1,4 +1,5 @@
 ---
+name: component-build
 description: Build a Harmony component across Vue / React / React Native from a Figma component set
 ---
 
@@ -22,7 +23,7 @@ Use when turning a Figma component set into production components.
 6. Implement **all states**: default/hover/focus/active/disabled/loading/error.
 7. Accessibility pass (`.devin/rules/accessibility.md`): focus, keyboard, 44pt targets,
    no color-only state, `prefers-reduced-motion` for any motion.
-8. Prepare **Code Connect** (run the code-connect workflow) so Figma maps to source.
+8. Prepare **Code Connect** (run the code-connect skill) so Figma maps to source.
 9. Write the component description (purpose, props, usage, a11y).
 10. Verify Definition of Done in `.devin/rules/harmony-core.md`.
 

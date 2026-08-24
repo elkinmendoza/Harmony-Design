@@ -1,14 +1,15 @@
 ---
+name: design-language-sync
 description: Propagate a change in docs/DESIGN.md (the design-language foundation) to tokens, rules, Figma, and docs
 ---
 
 # Workflow: Design-Language Sync (listener for docs/DESIGN.md)
 
 Run this **every time `docs/DESIGN.md` changes**. `DESIGN.md` is upstream and does
-not auto-update anything — this workflow keeps the downstream system truthful.
+not auto-update anything — this skill keeps the downstream system truthful.
 
 > **Human operators:** see `docs/WORKFLOWS.md` for the exact prompt to paste into
-> Devin / Cascade to invoke this workflow.
+> Devin / Cascade to invoke this skill.
 
 ## 0. Detect what changed
 Read the diff of `docs/DESIGN.md`. Classify the change into one or more buckets

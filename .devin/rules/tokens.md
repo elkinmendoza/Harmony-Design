@@ -18,10 +18,10 @@
 | Radius | `--radius-{name}` | `--radius-lg` |
 | Shadow | `--shadow-{name}` | `--shadow-card` |
 | Font family | `--font-{name}` | `--font-display` |
-| Text size | `--text-{variant}-size` | `--text-l-regular-size` |
-| Line height | `--text-{variant}-line-height` | `--text-l-regular-line-height` |
-| Letter spacing | `--text-{variant}-letter-spacing` | `--text-l-regular-letter-spacing` |
-| Heading | `--heading-{variant}-{prop}` | `--heading-9xl-bold-size` |
+| Text size | `--text-{variant}-size` | `--text-xl-size` |
+| Line height | `--text-{variant}-line-height` | `--text-xl-line-height` |
+| Letter spacing | `--text-{variant}-letter-spacing` | `--text-xl-letter-spacing` |
+| Heading | `--heading-{variant}-{prop}` | `--heading-9xl-size` |
 | Component | `--{component}-{property}` | `--button-primary-bg` |
 
 ## Rules
@@ -38,7 +38,7 @@
   `info` (blue). Do **not** reintroduce `feedback.*` / `success` / `error` / `warning`.
 - Component tokens alias semantic tokens only — never primitives directly.
 - Adding a token → add at the correct layer, then regenerate `theme.css`
-  (see `.devin/workflows/docs-sync.md`), never hand-edit `theme.css`.
+  (see `.devin/skills/docs-sync/SKILL.md`), never hand-edit `theme.css`.
 - Every token must resolve to a usable Tailwind v4 utility.
 
 ## Forbidden

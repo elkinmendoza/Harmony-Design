@@ -1,10 +1,11 @@
 {
-  "$description": "Harmony component tokens — component-scoped aliases. These reference SEMANTIC tokens only (color.*, space.*, radius.*, shadow.*, text.*, heading.*), never primitives. Emitted as CSS custom properties --{component}-{property}. Themes/verticals override semantic tokens; components rarely need overriding directly.",
+  "$description": "Harmony component tokens — component-scoped aliases. These reference SEMANTIC tokens only (color.*, space.*, radius.*, shadow.*, text.*, heading.*), never primitives. Emitted as CSS custom properties --{component}-{property}. Themes/verticals override semantic tokens; components rarely need overriding directly. Derived from the EM Mendoza portfolio (2026-ultimate-portfolio).",
   "$conventions": {
     "cssPattern": "--{component}-{property}",
     "aliasTarget": "semantic",
     "example": "button.primary.bg -> color.background.brand -> --button-primary-bg"
   },
+
   "button": {
     "primary": {
       "bg":       "color.background.brand",
@@ -37,6 +38,7 @@
       "font":     "text.sm"
     }
   },
+
   "input": {
     "bg":            "color.background.primary",
     "fg":            "color.content.primary",
@@ -49,6 +51,7 @@
     "paddingY":      "space.sm",
     "font":          "text.md"
   },
+
   "card": {
     "bg":       "color.background.primary",
     "border":   "color.border.subtle",
@@ -57,6 +60,7 @@
     "padding":  "space.xl",
     "shadow":   "shadow.card"
   },
+
   "badge": {
     "bg":       "color.background.brand",
     "fg":       "color.content.onBrand",
@@ -64,5 +68,645 @@
     "paddingX": "space.sm",
     "paddingY": "space.xs",
     "font":     "text.xs"
+  },
+
+  "header": {
+    "$description": "Desktop navigation header — fixed top, scroll hide/show, logo + bio + nav links.",
+    "bg":           "color.background.primary",
+    "fg":           "color.content.primary",
+    "fgHover":      "color.content.secondary",
+    "border":       "color.border.subtle",
+    "paddingX":     "space.lg",
+    "paddingY":     "space.sm",
+    "maxWidth":     "1440px",
+    "fontNav":      "text.md",
+    "fontBio":      "text.xs",
+    "fontFamily":   "font.family.sans",
+    "zIndex":       50,
+    "logoWidth":    "189px",
+    "logoHeight":   "25px"
+  },
+
+  "mobileNav": {
+    "$description": "Mobile navigation with fullscreen overlay menu — hamburger trigger, fullscreen dark overlay with large nav links.",
+    "bg":              "color.background.primary",
+    "bgOverlay":       "color.background.inverse",
+    "fg":              "color.content.primary",
+    "fgOverlay":       "color.content.inverse",
+    "fgSecondary":     "color.content.secondary",
+    "ctaBg":           "color.background.primary",
+    "ctaFg":           "color.content.primary",
+    "ctaRadius":       "radius.lg",
+    "paddingX":        "space.lg",
+    "paddingY":        "space.sm",
+    "paddingXOverlay": "space.xl",
+    "paddingYOverlay": "space.md",
+    "fontNav":         "heading.xl",
+    "fontLabel":       "text.md",
+    "fontLogo":        "heading.xs",
+    "fontCaption":     "text.xs",
+    "zIndex":          50,
+    "zIndexOverlay":   60
+  },
+
+  "heroBanner": {
+    "$description": "Full-viewport hero with oversized typographic headline (Clash Grotesk Bold) and embedded inline images. Signature portfolio entrance.",
+    "fg":               "color.content.primary",
+    "fontDisplay":      "heading.9xl",
+    "fontTagline":      "text.md",
+    "fontTaglineFamily":"font.family.sans",
+    "fontDisplayFamily":"font.family.display",
+    "paddingX":         "space.lg",
+    "paddingBottom":    "space.4xl",
+    "gapLines":         "space.sm",
+    "gapWords":         "space.xs",
+    "imageWidth": {
+      "sm":  "90px",
+      "md":  "120px",
+      "lg":  "180px",
+      "xl":  "248px",
+      "2xl": "328px"
+    },
+    "imageHeight": {
+      "sm":  "44px",
+      "md":  "60px",
+      "lg":  "80px",
+      "xl":  "115px"
+    },
+    "animation": {
+      "type": "gsap",
+      "from": { "y": 50, "opacity": 0 },
+      "to":   { "y": 0, "opacity": 1 },
+      "duration": "1s",
+      "stagger": "0.2s",
+      "ease": "power3.out"
+    }
+  },
+
+  "mediaHero": {
+    "$description": "Article/experiment hero section — large Clash Grotesk title, centered layout. Used as detail page entry.",
+    "fg":           "color.content.primary",
+    "font":         "heading.display-xl",
+    "fontFamily":   "font.family.display",
+    "paddingX":     "space.lg",
+    "paddingY":     "space.4xl",
+    "maxWidth":     "1170px",
+    "mobileFont":   "heading.lg"
+  },
+
+  "headlineDisplay": {
+    "$description": "Oversized single-word headline — scales from 64px (mobile) to 256px (xl). Used for section openers like SERVICES, PLAYGROUND.",
+    "fg":           "color.content.primary",
+    "font":         "heading.9xl",
+    "fontFamily":   "font.family.display",
+    "paddingX":     "space.lg",
+    "paddingY":     "space.4xl",
+    "letterSpacing": "-1px",
+    "responsiveSizes": {
+      "base": "64px",
+      "sm":   "96px",
+      "md":   "128px",
+      "lg":   "192px",
+      "xl":   "256px"
+    }
+  },
+
+  "headlineSection": {
+    "$description": "SELECTED WORK scroll-triggered headline with embedded image that expands to fill viewport. Pinned scroll animation.",
+    "fg":              "color.content.primary",
+    "fgSecondary":     "color.content.secondary",
+    "font":            "heading.9xl",
+    "fontCaption":     "heading.xs",
+    "fontFamily":      "font.family.display",
+    "fontCaptionFamily":"font.family.sans",
+    "paddingX":        "space.lg",
+    "paddingY":        "space.4xl",
+    "frameHeight":     "75px",
+    "framePadding":    "75px",
+    "animation": {
+      "type": "gsap-scrolltrigger",
+      "entrance": { "from": { "opacity": 0, "y": 100 }, "to": { "opacity": 1, "y": 0 }, "stagger": "0.2s" },
+      "expansion": { "pin": true, "scrub": 1, "duration": "+=150%" }
+    }
+  },
+
+  "bannerLayout": {
+    "$description": "Banner section with title, subtitle, and description in a responsive two-column layout.",
+    "fg":                "color.content.primary",
+    "fontTitle":         "heading.xs",
+    "fontSubtitle":      "heading.xs",
+    "fontDescription":   "heading.md",
+    "fontTitleFamily":   "font.family.sans",
+    "fontDescFamily":    "font.family.sans",
+    "paddingX":          "space.lg",
+    "paddingY":          "space.4xl",
+    "gapColumns":        "space.3xl",
+    "titleWidth":        "457px",
+    "descriptionWidth":  "807px",
+    "maxWidth":          "1440px"
+  },
+
+  "textSection": {
+    "$description": "Editorial two-column text section — numbered index column + body column. Signature layout from the portfolio.",
+    "fg":              "color.content.primary",
+    "fontNumber":      "heading.display-xl",
+    "fontBody":        "heading.md",
+    "fontNumberFamily":"font.family.display",
+    "fontBodyFamily":  "font.family.sans",
+    "paddingX":        "space.lg",
+    "paddingY":        "space.4xl",
+    "gapSections":     "space.4xl",
+    "numberWidth":     "69px",
+    "bodyMaxWidth":    "1170px",
+    "bodyPaddingX":    "space.xl",
+    "paragraphGap":    "space.3xl",
+    "dividerColor":    "color.border.strong"
+  },
+
+  "quoteSection": {
+    "$description": "Centered article quote with left spacer column. Used in experiment detail pages.",
+    "fg":             "color.content.primary",
+    "font":           "heading.lg",
+    "fontFamily":     "font.family.sans",
+    "fontWeight":     "font.weight.semibold",
+    "paddingX":       "space.lg",
+    "paddingY":       "space.4xl",
+    "spacerWidth":    "69px",
+    "contentPadding": "space.xl",
+    "maxWidth":       "1170px"
+  },
+
+  "articleTitleSection": {
+    "$description": "Large editorial quote/title section with optional spacer. Used as section openers.",
+    "fg":           "color.content.primary",
+    "font":         "heading.lg",
+    "fontFamily":   "font.family.sans",
+    "fontWeight":   "font.weight.semibold",
+    "paddingX":     "space.lg",
+    "paddingY":     "space.4xl",
+    "spacerWidth":  "69px",
+    "bodyMaxWidth": "1170px",
+    "bodyPaddingX": "space.xl"
+  },
+
+  "footer": {
+    "$description": "Footer composed of FooterCta (call-to-action) and FooterList (sitemap + socials + copyright).",
+    "cta": {
+      "fg":             "color.content.primary",
+      "fontTitle":      "heading.xs",
+      "fontDescription":"heading.md",
+      "fontFamily":     "font.family.sans",
+      "paddingX":       "space.lg",
+      "paddingY":       "space.4xl",
+      "maxWidth":       "1440px",
+      "titleWidth":     "457px",
+      "descWidth":      "768px"
+    },
+    "list": {
+      "fg":           "color.content.primary",
+      "fontHeader":   "text.md",
+      "fontLink":     "text.md",
+      "fontCopyright":"text.sm",
+      "headerFamily": "font.family.sans",
+      "linkFamily":   "font.family.body",
+      "paddingX":     "space.lg",
+      "paddingY":     "space.4xl",
+      "gapColumns":   "space.3xl",
+      "gapLinks":     "space.xs",
+      "maxWidth":     "1440px"
+    }
+  },
+
+  "bioSection": {
+    "$description": "Detailed bio with profile photo, vertical labels, title, description, and stats. Signature portfolio identity component.",
+    "bg":                 "color.background.primary",
+    "fg":                 "color.content.primary",
+    "fgSecondary":        "color.content.tertiary",
+    "fgMuted":            "color.content.secondary",
+    "border":             "color.border.strong",
+    "borderSubtle":       "color.border.subtle",
+    "fontName":           "text.xs",
+    "fontTitle":          "heading.xl",
+    "fontDescription":    "text.lg",
+    "fontStats":          "heading.md",
+    "fontStatsLabel":     "text.xs",
+    "fontVerticalLabel":  "text.xs",
+    "nameFamily":         "font.family.sans",
+    "titleFamily":        "font.family.display",
+    "descFamily":         "font.family.sans",
+    "statsFamily":        "font.family.display",
+    "paddingX":           "space.lg",
+    "paddingY":           "space.4xl",
+    "gapSections":        "space.5xl",
+    "photoWidth":         "520px",
+    "photoHeight":        "680px",
+    "contentPadding":     "space.3xl",
+    "statsDivider":       "color.border.subtle",
+    "mobile": {
+      "photoHeight":      "540px",
+      "fontTitle":        "heading.lg",
+      "fontDescription":  "text.sm",
+      "fontStats":        "heading.sm",
+      "paddingX":         "space.lg",
+      "paddingY":         "space.3xl",
+      "gapSections":      "space.lg"
+    }
+  },
+
+  "serviceCard": {
+    "$description": "Service cards displayed in a horizontal scroll (pinned) on desktop, vertically stacked on mobile. Large oversized number + title + description.",
+    "bg":              "color.background.primary",
+    "fg":              "color.content.primary",
+    "border":          "color.border.strong",
+    "borderWidth":     "2px",
+    "fontNumber":      "heading.display-2xl",
+    "fontTitle":       "heading.lg",
+    "fontDescription": "heading.sm",
+    "numberFamily":    "font.family.display",
+    "titleFamily":     "font.family.sans",
+    "descFamily":      "font.family.sans",
+    "paddingX":        "space.3xl",
+    "paddingY":        "space.lg",
+    "cardWidth":       "624px",
+    "cardHeight":      "567px",
+    "gapContent":      "space.sm",
+    "introFontTitle":  "heading.md",
+    "introFontSubtitle":"heading.sm",
+    "animation": {
+      "type": "gsap-scrolltrigger",
+      "horizontal": true,
+      "pin": true,
+      "scrub": 1
+    }
+  },
+
+  "projectThumbnail": {
+    "$description": "Project thumbnail card in a staggered 2-column grid with parallax scroll. Dark background section with gradient overlay on images.",
+    "bg":              "color.background.inverse",
+    "fg":              "color.content.inverse",
+    "fontTitle":       "heading.lg",
+    "fontMeta":        "text.xs",
+    "titleFamily":     "font.family.sans",
+    "metaFamily":      "font.family.sans",
+    "paddingOuter":    "space.lg",
+    "paddingInner":    "space.xl",
+    "paddingBottom":   "space.lg",
+    "maxWidth":        "457px",
+    "height":          "609px",
+    "gridGapX":        "226px",
+    "gridGapY":        "125px",
+    "gradientOverlay": "from-black/60 via-transparent via-45% to-black/60",
+    "animation": {
+      "type": "gsap-scrolltrigger",
+      "parallax": { "even": "120px", "odd": "60px" },
+      "scrub": 1,
+      "imageHover": "scale(1.05)"
+    }
+  },
+
+  "projectPresentation": {
+    "$description": "Interactive project gallery with draggable sidebar and detail view. Split layout with project list + media + info.",
+    "bg":              "color.background.primary",
+    "fg":              "color.content.primary",
+    "fgSecondary":     "color.content.secondary",
+    "border":          "color.border.strong",
+    "fontId":          "heading.xs",
+    "fontTitle":       "text.md",
+    "fontYear":        "text.sm",
+    "fontSection":     "heading.xs",
+    "fontBody":        "text.md",
+    "idFamily":        "font.family.sans",
+    "titleFamily":     "font.family.sans",
+    "bodyFamily":      "font.family.body",
+    "sidebarWidth":    "414px",
+    "detailWidth":     "1026px",
+    "thumbnailHeight": "95px",
+    "thumbnailWidth":  "160px",
+    "height":          "720px",
+    "paddingX":        "space.lg",
+    "paddingY":        "space.lg",
+    "gapSections":     "space.xl",
+    "mediaBg":         "color.background.inverse",
+    "buttonBg":        "color.background.inverse",
+    "buttonFg":        "color.content.inverse",
+    "animation": {
+      "type": "gsap-draggable",
+      "autoScroll": true,
+      "pauseOnHover": true
+    }
+  },
+
+  "experimentCard": {
+    "$description": "Experiment feature card with image, quote, and keyword list. Two-column layout with editorial styling.",
+    "bg":               "color.background.primary",
+    "fg":               "color.content.primary",
+    "fgSecondary":      "color.content.secondary",
+    "fgAccent":         "color.status.negative",
+    "border":           "color.border.strong",
+    "borderWidth":      "2px",
+    "labelBg":          "color.background.inverse",
+    "labelFg":          "color.content.inverse",
+    "fontTitle":        "heading.xs",
+    "fontMeta":         "text.xs",
+    "fontQuote":        "heading.lg",
+    "fontKeyword":      "heading.xs",
+    "fontKeywordNum":   "text.xs",
+    "titleFamily":      "font.family.display",
+    "metaFamily":       "font.family.sans",
+    "quoteFamily":      "font.family.display",
+    "keywordFamily":    "font.family.display",
+    "paddingX":         "space.lg",
+    "paddingY":         "space.xl",
+    "gapColumns":       "space.2xl",
+    "leftWidth":        "419px",
+    "gradientOverlay":  "from-transparent to-rgba(14,14,16,0.65)",
+    "mobile": {
+      "fontQuote":      "heading.sm",
+      "border":         "3px",
+      "layout":         "stacked"
+    }
+  },
+
+  "articleMeta": {
+    "$description": "Article metadata section — author, date, description, share buttons. Two-column asymmetric layout.",
+    "fg":              "color.content.primary",
+    "fontLabel":       "heading.xs",
+    "fontDescription": "heading.lg",
+    "labelFamily":     "font.family.sans",
+    "descFamily":      "font.family.sans",
+    "paddingX":        "space.lg",
+    "paddingY":        "space.4xl",
+    "maxWidth":        "1440px",
+    "leftWidth":       "457px",
+    "rightWidth":      "807px",
+    "gapMeta":         "space.lg",
+    "gapAuthor":       "space.sm",
+    "linkDecoration":  "underline",
+    "linkHoverOpacity": 0.7
+  },
+
+  "articleParagraph": {
+    "$description": "Article content paragraph with optional sidebar spacer. Uses Roboto body text.",
+    "fg":           "color.content.primary",
+    "font":         "text.md",
+    "fontFamily":   "font.family.body",
+    "paddingX":     "space.lg",
+    "paddingY":     "space.4xl",
+    "maxWidth":     "1440px",
+    "sidebarWidth": "457px",
+    "contentWidth": "807px",
+    "gapSidebar":   "space.4xl"
+  },
+
+  "articleShare": {
+    "$description": "Social sharing component with platform icons (Twitter/X, LinkedIn, Pinterest, etc.) and clipboard fallback.",
+    "fg":           "color.content.primary",
+    "font":         "heading.xs",
+    "fontFamily":   "font.family.sans",
+    "iconSize":     "20px",
+    "gapLabel":     "space.sm",
+    "gapIcons":     "space.md",
+    "hoverOpacity": 0.6,
+    "focusOutline": "color.content.primary",
+    "focusOffset":  "2px"
+  },
+
+  "articleExperiments": {
+    "$description": "Experiment article list with links — desktop horizontal three-column layout, mobile stacked.",
+    "fg":             "color.content.primary",
+    "border":         "color.border.strong",
+    "borderWidth":    "2px",
+    "fontTitle":      "heading.xs",
+    "fontSubtitle":   "heading.md",
+    "fontDescription":"heading.display-lg",
+    "fontBadge":      "text.xs",
+    "titleFamily":    "font.family.sans",
+    "descFamily":     "font.family.sans",
+    "badgeFamily":    "font.family.sans",
+    "paddingX":       "space.lg",
+    "paddingY":       "space.4xl",
+    "itemPadding":    "space.lg",
+    "gapItems":       "space.sm",
+    "badgeRadius":    "radius.full",
+    "badgePaddingX":  "space.sm",
+    "badgePaddingY":  "space.xs",
+    "imageHeight":    "270px",
+    "imageMaxWidth":  "320px",
+    "hoverBg":        "color.background.secondary",
+    "mobile": {
+      "fontDescription": "heading.md",
+      "layout": "stacked"
+    }
+  },
+
+  "fullWidthImage": {
+    "$description": "Full-width image display with configurable height and object positioning.",
+    "paddingX":      "space.lg",
+    "maxWidth":      "1440px",
+    "defaultHeight": "959px",
+    "objectFit":     "cover",
+    "objectPositions": ["top", "center", "bottom"]
+  },
+
+  "imageSection": {
+    "$description": "Image display in portrait or landscape orientation with fixed dimensions.",
+    "paddingX":        "space.lg",
+    "paddingY":        "space.4xl",
+    "maxWidth":        "1440px",
+    "portraitHeight":  "1190px",
+    "portraitWidth":   "783px",
+    "landscapeHeight": "600px",
+    "objectFit":       "cover"
+  },
+
+  "twoColumnImages": {
+    "$description": "Side-by-side two-column image display with configurable heights and object positioning.",
+    "paddingX":         "space.lg",
+    "maxWidth":         "1440px",
+    "gap":              "space.lg",
+    "defaultLeftHeight":"440px",
+    "defaultRightHeight":"1106px",
+    "objectFit":        "cover"
+  },
+
+  "imageBackground": {
+    "$description": "Full-width background image section with overflow clip. Used as visual breaks between content.",
+    "maxWidth":   "1440px",
+    "height":     "768px",
+    "paddingY":   "space.4xl",
+    "objectFit":  "cover",
+    "overflow":   "clip"
+  },
+
+  "slider": {
+    "$description": "Banner slider variants — auto-scroll, dual-direction, and interactive drag. Oversized Clash Grotesk text with interspersed images.",
+    "fontText":        "heading.9xl",
+    "fontFamily":      "font.family.display",
+    "fgEven":          "color.content.secondary",
+    "fgOdd":           "color.content.primary",
+    "bgOdd":           "color.background.tertiary",
+    "paddingY":        "space.4xl",
+    "gapItems":        "space.sm",
+    "textSize":        "160px",
+    "textLineHeight":  "142px",
+    "letterSpacing":   "-1px",
+    "imageHeight":     "320px",
+    "imageWidth":      "320px",
+    "autoScroll": {
+      "speed": "20s",
+      "flickerInterval": "4000ms"
+    },
+    "dualDirection": {
+      "speed": "44s",
+      "textSize": "256px",
+      "textLineHeight": "192px"
+    },
+    "interactiveDrag": {
+      "baseVelocity": "-0.6",
+      "flickerInterval": "4000ms",
+      "momentumDecay": 0.92,
+      "textSize": "160px"
+    }
+  },
+
+  "marquee": {
+    "$description": "Infinite-scrolling skills/tags marquee — two rows scrolling in opposite directions. Used in project grid section.",
+    "fontText":       "heading.9xl",
+    "fontFamily":     "font.family.display",
+    "fgPrimary":      "color.content.primary",
+    "fgAlternate":    "color.content.secondary",
+    "bgAlternate":    "color.background.tertiary",
+    "paddingY":       "space.4xl",
+    "gapRows":        "space.sm",
+    "gapItems":       "space.lg",
+    "textSize":       "160px",
+    "textLineHeight": "142px",
+    "speed":          "120s"
+  },
+
+  "nextExperiment": {
+    "$description": "Next experiment CTA section — dark background with title, link, and oversized drag slider. Used as article/experiment closers.",
+    "bg":               "color.background.inverse",
+    "fg":               "color.content.inverse",
+    "fgSecondary":      "color.content.secondary",
+    "fgMuted":          "color.content.tertiary",
+    "border":           "color.border.subtle",
+    "fontHeader":       "text.sm",
+    "fontTitle":        "heading.xl",
+    "fontLink":         "heading.lg",
+    "fontSlider":       "heading.9xl",
+    "headerFamily":     "font.family.sans",
+    "titleFamily":      "font.family.sans",
+    "sliderFamily":     "font.family.display",
+    "headerHeight":     "70px",
+    "titleHeight":      "156px",
+    "sliderHeight":     "344px",
+    "paddingX":         "space.lg",
+    "imageWidth":       "240px",
+    "imageHeight":      "180px",
+    "hoverOpacity":     0.8,
+    "sliderTextSize":   "280px",
+    "animation": {
+      "type": "gsap",
+      "drag": true,
+      "flickerInterval": "4000ms",
+      "momentumDecay": 0.92
+    },
+    "mobile": {
+      "fontHeader":     "text.xs",
+      "fontTitle":      "heading.sm",
+      "fontLink":       "heading.xs",
+      "sliderTextSize": "160px",
+      "headerHeight":   "55px",
+      "imageWidth":     "90px",
+      "imageHeight":    "116px",
+      "sliderHeight":   "198px"
+    }
+  },
+
+  "workExperience": {
+    "$description": "Work experience timeline — numbered sections with company name, role, period, and dividers.",
+    "bg":             "color.background.primary",
+    "fg":             "color.content.primary",
+    "fgSecondary":    "color.content.secondary",
+    "border":         "color.border.default",
+    "fontNumber":     "heading.display-xl",
+    "fontCompany":    "heading.xs",
+    "fontRole":       "text.sm",
+    "fontPeriod":     "heading.xs",
+    "numberFamily":   "font.family.display",
+    "companyFamily":  "font.family.sans",
+    "roleFamily":     "font.family.body",
+    "periodFamily":   "font.family.sans",
+    "paddingX":       "space.lg",
+    "paddingY":       "space.4xl",
+    "maxWidth":       "1440px",
+    "leftWidth":      "457px",
+    "rightWidth":     "784px",
+    "rightPaddingX":  "space.3xl",
+    "itemPaddingX":   "space.sm",
+    "itemPaddingY":   "space.md",
+    "gapItems":       "space.md"
+  },
+
+  "selectedWorkCaptions": {
+    "$description": "Values/philosophy section — dark background, two-column layout with headline and value items.",
+    "bg":              "color.background.inverse",
+    "fg":              "color.content.inverse",
+    "fgSecondary":     "color.content.secondary",
+    "fontHeadline":    "heading.xs",
+    "fontTitle":       "heading.xs",
+    "fontDescription": "heading.xs",
+    "headlineFamily":  "font.family.sans",
+    "titleFamily":     "font.family.sans",
+    "descFamily":      "font.family.sans",
+    "paddingX":        "space.lg",
+    "paddingY":        "space.4xl",
+    "maxWidth":        "1440px",
+    "leftWidth":       "342px",
+    "gapValues":       "space.2xl",
+    "gapItems":        "space.sm",
+    "itemPadding":     "space.2xl"
+  },
+
+  "pageTransition": {
+    "$description": "Page transition with curtain wipe effect — dark curtain rises then wipes away, content fades in.",
+    "curtainBg":       "color.background.inverse",
+    "zIndex":          100,
+    "animation": {
+      "type": "gsap",
+      "curtainRise":  { "duration": "0.7s", "ease": "expo.inOut" },
+      "curtainWipe":  { "duration": "0.9s", "ease": "expo.inOut" },
+      "contentFade":  { "duration": "0.5s", "ease": "power2.out" }
+    }
+  },
+
+  "preloader": {
+    "$description": "Initial load preloader with logo mask fill animation and percentage counter.",
+    "bg":            "color.background.inverse",
+    "fgLogo":        "color.content.inverse",
+    "fgLogoBase":    "color.content.tertiary",
+    "fgCounter":     "color.content.inverse",
+    "zIndex":        9999,
+    "fontCounter":   "text.sm",
+    "counterFamily": "font.family.sans",
+    "paddingX":      "space.lg",
+    "counterBottom": "space.xl",
+    "animation": {
+      "type": "gsap",
+      "fillDuration": "3.2s",
+      "fadeOutDuration": "0.85s",
+      "panelWipeDuration": "1s"
+    }
+  },
+
+  "smoothScroller": {
+    "$description": "Lenis-powered smooth scrolling utility with GSAP sync. Not a visual component.",
+    "lerp": 0.1,
+    "duration": 1.2,
+    "touchMultiplier": 2,
+    "gestureOrientation": "vertical",
+    "anchorOffset": -80,
+    "respectsReducedMotion": true
   }
 }

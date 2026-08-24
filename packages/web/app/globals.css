@@ -1,0 +1,5 @@
+/* Harmony Design System — Web entry point.
+   Imports the generated Tailwind v4 theme + base reset. */
+
+@import "../../../foundations/theme.css";
+@import "../../../foundations/reset.css";

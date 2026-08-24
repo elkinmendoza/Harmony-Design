@@ -1,7 +1,7 @@
 # Harmony - How to Run Workflows with Devin / Cascade
 
 > This file is for **human operators**. It tells you exactly what to paste into
-> the Devin or Cascade chat so an agent follows the right `.devin/workflows/*.md`
+> the Devin or Cascade chat so an agent follows the right `.devin/skills/*.md`
 > file and keeps the design system consistent.
 >
 > Read `CONTEXT.md` §2.1 first for the edit-order rules, then use this file
@@ -36,7 +36,7 @@ If you ask an agent to edit `theme.css` directly, you will break the source chai
 I updated docs/DESIGN.md:
 [one-sentence summary, e.g. "added heading.9xl to the typography scale"]
 
-Follow .devin/workflows/design-language-sync.md step by step. Then verify that
+Follow .devin/skills/design-language-sync/SKILL.md step by step. Then verify that
 foundations/theme.css, tokens/semantic.json, and docs/README.md all reflect the
 change. Do not edit theme.css directly without updating semantic.json first.
 ```
@@ -59,7 +59,7 @@ change. Do not edit theme.css directly without updating semantic.json first.
 I changed tokens/semantic.json:
 [one-sentence summary, e.g. "heading.9xl line-height is now 9rem"]
 
-Follow .devin/workflows/docs-sync.md. Regenerate foundations/theme.css to match
+Follow .devin/skills/docs-sync/SKILL.md. Regenerate foundations/theme.css to match
 and update any docs that display this value (e.g. docs/DESIGN.md typography table).
 ```
 
@@ -77,7 +77,7 @@ and update any docs that display this value (e.g. docs/DESIGN.md typography tabl
 **Prompt to paste:**
 
 ```
-I exported updated primitives from Figma. Follow .devin/workflows/design-to-token.md
+I exported updated primitives from Figma. Follow .devin/skills/design-to-token/SKILL.md
 to reconcile them. If any primitive is missing from tokens/primitives.json, stop and
 ask before inventing values. Then update semantic aliases and regenerate
 theme.css via docs-sync.
@@ -96,12 +96,12 @@ theme.css via docs-sync.
 
 | When this happens... | Paste this prompt |
 |---|---|
-| `docs/DESIGN.md` changed | "I updated DESIGN.md. Follow `.devin/workflows/design-language-sync.md` step by step." |
-| `tokens/semantic.json` changed | "I updated `tokens/semantic.json`. Follow `.devin/workflows/docs-sync.md` and regenerate `theme.css`." |
-| New component token in `tokens/components.json` | "I added a component token. Follow `.devin/workflows/docs-sync.md` and verify `theme.css` reflects it." |
-| New Figma spec arrived | "I pulled a spec from Figma. Follow `.devin/workflows/design-to-token.md`." |
-| Building a new component | "Build the [Name] component for [web/mobile/dashboard]. Follow `.devin/workflows/component-build.md`." |
-| Linking Figma to code | "Create Code Connect for [Component]. Follow `.devin/workflows/code-connect.md`." |
+| `docs/DESIGN.md` changed | "I updated DESIGN.md. Follow `.devin/skills/design-language-sync/SKILL.md` step by step." |
+| `tokens/semantic.json` changed | "I updated `tokens/semantic.json`. Follow `.devin/skills/docs-sync/SKILL.md` and regenerate `theme.css`." |
+| New component token in `tokens/components.json` | "I added a component token. Follow `.devin/skills/docs-sync/SKILL.md` and verify `theme.css` reflects it." |
+| New Figma spec arrived | "I pulled a spec from Figma. Follow `.devin/skills/design-to-token/SKILL.md`." |
+| Building a new component | "Build the [Name] component for [web/mobile/dashboard]. Follow `.devin/skills/component-build/SKILL.md`." |
+| Linking Figma to code | "Create Code Connect for [Component]. Follow `.devin/skills/code-connect/SKILL.md`." |
 
 ---
 
@@ -161,20 +161,20 @@ Confirm:
 ### Add a new heading size (Entry A)
 
 1. You edit `docs/DESIGN.md` typography table.
-2. Prompt Cascade: "I updated DESIGN.md with a new `heading.10xl` step. Follow `.devin/workflows/design-language-sync.md`."
+2. Prompt Cascade: "I updated DESIGN.md with a new `heading.10xl` step. Follow `.devin/skills/design-language-sync/SKILL.md`."
 3. Agent updates `tokens/semantic.json` -> mirrors `theme.css` -> updates `docs/README.md`.
 4. You `git diff` to verify.
 
 ### Change a token value (Entry B)
 
 1. You edit `tokens/semantic.json` (`heading.9xl.lineHeight` to `9rem`).
-2. Prompt Cascade: "I changed `heading.9xl.lineHeight` in `tokens/semantic.json` to `9rem`. Follow `.devin/workflows/docs-sync.md` and regenerate `theme.css`."
+2. Prompt Cascade: "I changed `heading.9xl.lineHeight` in `tokens/semantic.json` to `9rem`. Follow `.devin/skills/docs-sync/SKILL.md` and regenerate `theme.css`."
 3. Agent mirrors the value to `theme.css` and updates the `DESIGN.md` table.
 4. You verify the same value in `semantic.json` and `theme.css`.
 
 ### New colour from Figma (Entry C)
 
 1. Export the Figma `Colour` collection.
-2. Prompt Cascade: "I exported new primitives. Follow `.devin/workflows/design-to-token.md`."
+2. Prompt Cascade: "I exported new primitives. Follow `.devin/skills/design-to-token/SKILL.md`."
 3. Agent reconciles `primitives.json`, updates `semantic.json`, regenerates `theme.css`.
 4. You verify the new `--color-*` variables in `theme.css`.
