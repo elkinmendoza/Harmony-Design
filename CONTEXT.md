@@ -227,7 +227,7 @@ Recommended metadata schema per chunk:
   "surface": "any",
   "task": ["token", "component"],
   "precedence": 1,
-  "updated": "2026-07-27"
+  "updated": "2026-08-27"
 }
 ```
 
@@ -238,5 +238,5 @@ Recommended metadata schema per chunk:
 1. Load `CONTEXT.md` (this file).
 2. Resolve task type in §1 → load only that row.
 3. Honour precedence in §2 for every value.
-4. Follow the matching `.devin/workflow` if one exists.
+4. Follow the matching `.devin/skills/*/SKILL.md` if one exists.
 5. On finish, update any changed token JSON and re-run docs-sync.

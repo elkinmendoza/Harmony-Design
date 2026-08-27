@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/presentations/harmony-hero-central-dominance.png" alt="Harmony Design System — Introducing a new design system" width="100%" />
+</p>
+
 # Harmony Design System
 
 **Harmony** is a centralised, Figma-driven design system that generates a
@@ -72,9 +76,16 @@ Harmony/
 │   ├── specs/                   ← component spec docs (per-component .md)
 │   └── README.md                ← component library architecture + Figma mapping
 │
+├── assets/
+│   ├── backgrounds/             ← liquid chrome hero textures (brand visual identity)
+│   ├── brand/                   ← Harmony logo marks
+│   └── presentations/           ← Figma cover exports and hero screenshots
+│
 ├── prompts/                     ← Figma Make prompt templates (e.g. agency template)
 │
-└── packages/                    ← (future) monorepo: web (Next.js) + mobile (Expo/RN)
+└── packages/                    ← monorepo: web (Next.js) + mobile (Expo/RN)
+    ├── web/                     ← Next.js 15 + Tailwind v4 + Harmony foundations
+    └── mobile/                  ← Expo 53 + React Native 0.79
 ```
 
 **Figma file keys**
