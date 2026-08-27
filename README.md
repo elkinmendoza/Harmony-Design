@@ -2,12 +2,123 @@
   <img src="assets/presentations/harmony-hero-central-dominance.png" alt="Harmony Design System — Introducing a new design system" width="100%" />
 </p>
 
+<p align="center">
+  <img src="https://img.shields.io/badge/v1.0.0-ff9500?style=flat-square&label=Harmony&labelColor=161512" alt="Harmony v1.0.0" />
+  <img src="https://img.shields.io/badge/Figma_Driven-161512?style=flat-square&logo=figma&logoColor=ff9500" alt="Figma Driven" />
+  <img src="https://img.shields.io/badge/Tailwind_v4-161512?style=flat-square&logo=tailwindcss&logoColor=ff9500" alt="Tailwind v4" />
+  <img src="https://img.shields.io/badge/React_%7C_Vue_%7C_RN-161512?style=flat-square&logo=react&logoColor=ff9500" alt="React | Vue | React Native" />
+</p>
+
 # Harmony Design System
 
-**Harmony** is a centralised, Figma-driven design system that generates a
-Tailwind CSS v4 foundation and a cross-framework component library
-(Vue.js / React.js / React Native). Built for teams that lead with a strong
-visual voice: big editorial titles, organised layouts, and effortless readability.
+A unified design system built to bridge design and development — providing
+consistent tokens, components, and layouts across web, mobile, and dashboard
+products. Big editorial titles, organised layouts, and effortless readability.
+
+<p align="center">
+  <a href="#components"><strong>Components</strong></a>&nbsp;&nbsp;&nbsp;
+  <a href="#3-token-flow--the-one-rule"><strong>Tokens</strong></a>&nbsp;&nbsp;&nbsp;
+  <a href="#9-figma-mcp-integration"><strong>Figma</strong></a>&nbsp;&nbsp;&nbsp;
+  <a href="#11-typography-scale"><strong>Typography</strong></a>&nbsp;&nbsp;&nbsp;
+  <a href="#12-colour-palette"><strong>Colour</strong></a>&nbsp;&nbsp;&nbsp;
+  <a href="#13-dark-mode"><strong>Dark Mode</strong></a>
+</p>
+
+---
+
+### Components
+
+<table>
+<tr>
+<td>
+
+**UI**&nbsp;&nbsp;
+[![Button](https://img.shields.io/badge/Button-f8f7f5?style=flat-square&labelColor=ff9500)](components/specs/)
+[![Link](https://img.shields.io/badge/Link-f8f7f5?style=flat-square&labelColor=ff9500)](components/specs/)
+[![Icon](https://img.shields.io/badge/Icon-f8f7f5?style=flat-square&labelColor=ff9500)](components/specs/)
+[![Badge](https://img.shields.io/badge/Badge-f8f7f5?style=flat-square&labelColor=ff9500)](components/specs/)
+[![Input](https://img.shields.io/badge/Input-f8f7f5?style=flat-square&labelColor=ff9500)](components/specs/)
+[![Modal](https://img.shields.io/badge/Modal-f8f7f5?style=flat-square&labelColor=ff9500)](components/specs/)
+[![Tooltip](https://img.shields.io/badge/Tooltip-f8f7f5?style=flat-square&labelColor=ff9500)](components/specs/)
+
+</td>
+</tr>
+<tr>
+<td>
+
+**Layout**&nbsp;&nbsp;
+[![Container](https://img.shields.io/badge/Container-f8f7f5?style=flat-square&labelColor=787470)](components/specs/)
+[![Section](https://img.shields.io/badge/Section-f8f7f5?style=flat-square&labelColor=787470)](components/specs/)
+[![Grid](https://img.shields.io/badge/Grid-f8f7f5?style=flat-square&labelColor=787470)](components/specs/)
+[![Stack](https://img.shields.io/badge/Stack-f8f7f5?style=flat-square&labelColor=787470)](components/specs/)
+[![Divider](https://img.shields.io/badge/Divider-f8f7f5?style=flat-square&labelColor=787470)](components/specs/)
+
+</td>
+</tr>
+<tr>
+<td>
+
+**Navigation**&nbsp;&nbsp;
+[![Navbar](https://img.shields.io/badge/Navbar-f8f7f5?style=flat-square&labelColor=161512)](components/specs/navigation.md)
+[![Menu](https://img.shields.io/badge/Menu-f8f7f5?style=flat-square&labelColor=161512)](components/specs/navigation.md)
+[![MobileMenu](https://img.shields.io/badge/MobileMenu-f8f7f5?style=flat-square&labelColor=161512)](components/specs/navigation.md)
+[![Breadcrumbs](https://img.shields.io/badge/Breadcrumbs-f8f7f5?style=flat-square&labelColor=161512)](components/specs/)
+[![Footer](https://img.shields.io/badge/Footer-f8f7f5?style=flat-square&labelColor=161512)](components/specs/footer.md)
+
+</td>
+</tr>
+<tr>
+<td>
+
+**Content**&nbsp;&nbsp;
+[![Hero](https://img.shields.io/badge/Hero-f8f7f5?style=flat-square&labelColor=cc7700)](components/specs/hero.md)
+[![Card](https://img.shields.io/badge/Card-f8f7f5?style=flat-square&labelColor=cc7700)](components/specs/service-card.md)
+[![ProjectCard](https://img.shields.io/badge/ProjectCard-f8f7f5?style=flat-square&labelColor=cc7700)](components/specs/project-grid.md)
+[![ArticleCard](https://img.shields.io/badge/ArticleCard-f8f7f5?style=flat-square&labelColor=cc7700)](components/specs/article.md)
+[![Bio](https://img.shields.io/badge/Bio-f8f7f5?style=flat-square&labelColor=cc7700)](components/specs/bio-section.md)
+[![Testimonial](https://img.shields.io/badge/Testimonial-f8f7f5?style=flat-square&labelColor=cc7700)](components/specs/)
+
+</td>
+</tr>
+<tr>
+<td>
+
+**Media**&nbsp;&nbsp;
+[![Image](https://img.shields.io/badge/Image-f8f7f5?style=flat-square&labelColor=2d6bf4)](components/specs/media.md)
+[![Video](https://img.shields.io/badge/Video-f8f7f5?style=flat-square&labelColor=2d6bf4)](components/specs/media.md)
+[![Gallery](https://img.shields.io/badge/Gallery-f8f7f5?style=flat-square&labelColor=2d6bf4)](components/specs/media.md)
+[![Carousel](https://img.shields.io/badge/Carousel-f8f7f5?style=flat-square&labelColor=2d6bf4)](components/specs/slider.md)
+[![Lightbox](https://img.shields.io/badge/Lightbox-f8f7f5?style=flat-square&labelColor=2d6bf4)](components/specs/media.md)
+
+</td>
+</tr>
+<tr>
+<td>
+
+**Interaction**&nbsp;&nbsp;
+[![Reveal](https://img.shields.io/badge/Reveal-f8f7f5?style=flat-square&labelColor=1a9e52)](components/specs/transitions.md)
+[![Parallax](https://img.shields.io/badge/Parallax-f8f7f5?style=flat-square&labelColor=1a9e52)](components/specs/transitions.md)
+[![Marquee](https://img.shields.io/badge/Marquee-f8f7f5?style=flat-square&labelColor=1a9e52)](components/specs/slider.md)
+[![Magnetic](https://img.shields.io/badge/Magnetic-f8f7f5?style=flat-square&labelColor=1a9e52)](components/specs/transitions.md)
+[![ScrollProgress](https://img.shields.io/badge/ScrollProgress-f8f7f5?style=flat-square&labelColor=1a9e52)](components/specs/transitions.md)
+
+</td>
+</tr>
+<tr>
+<td>
+
+**Forms**&nbsp;&nbsp;
+[![Form](https://img.shields.io/badge/Form-f8f7f5?style=flat-square&labelColor=e53e2a)](components/specs/)
+[![Input](https://img.shields.io/badge/Input-f8f7f5?style=flat-square&labelColor=e53e2a)](components/specs/)
+[![Textarea](https://img.shields.io/badge/Textarea-f8f7f5?style=flat-square&labelColor=e53e2a)](components/specs/)
+[![Select](https://img.shields.io/badge/Select-f8f7f5?style=flat-square&labelColor=e53e2a)](components/specs/)
+[![FileUpload](https://img.shields.io/badge/FileUpload-f8f7f5?style=flat-square&labelColor=e53e2a)](components/specs/)
+
+</td>
+</tr>
+</table>
+
+<br />
 
 > **Agents (Devin / Cascade):** load `CONTEXT.md` first every session. It is the
 > routing index that tells you which file to retrieve for which task.
