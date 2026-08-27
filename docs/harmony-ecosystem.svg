@@ -1,0 +1,757 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 2800" font-family="'Helvetica Neue', Arial, sans-serif">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#111114"/>
+      <stop offset="100%" stop-color="#16151a"/>
+    </linearGradient>
+    <linearGradient id="brandGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff9500"/>
+      <stop offset="100%" stop-color="#ffb347"/>
+    </linearGradient>
+    <linearGradient id="figmaGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#a259ff"/>
+      <stop offset="100%" stop-color="#c490ff"/>
+    </linearGradient>
+    <linearGradient id="tokenGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ff9500"/>
+      <stop offset="50%" stop-color="#ffb347"/>
+      <stop offset="100%" stop-color="#ff9500"/>
+    </linearGradient>
+    <linearGradient id="semanticGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2d6bf4"/>
+      <stop offset="100%" stop-color="#5a8ff7"/>
+    </linearGradient>
+    <linearGradient id="componentGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a9e52"/>
+      <stop offset="100%" stop-color="#34c670"/>
+    </linearGradient>
+    <linearGradient id="outputGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e53e2a"/>
+      <stop offset="100%" stop-color="#f06050"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1c1c20"/>
+      <stop offset="100%" stop-color="#18181c"/>
+    </linearGradient>
+    <linearGradient id="arrowGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ff9500"/>
+      <stop offset="100%" stop-color="#ff950080"/>
+    </linearGradient>
+
+    <!-- Glow filter -->
+    <filter id="glow">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glowSoft">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="dropShadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+
+    <!-- Arrow marker -->
+    <marker id="arrowHead" markerWidth="12" markerHeight="8" refX="10" refY="4" orient="auto">
+      <path d="M0,0 L12,4 L0,8 Z" fill="#ff9500"/>
+    </marker>
+    <marker id="arrowHeadBlue" markerWidth="12" markerHeight="8" refX="10" refY="4" orient="auto">
+      <path d="M0,0 L12,4 L0,8 Z" fill="#2d6bf4"/>
+    </marker>
+    <marker id="arrowHeadGreen" markerWidth="12" markerHeight="8" refX="10" refY="4" orient="auto">
+      <path d="M0,0 L12,4 L0,8 Z" fill="#1a9e52"/>
+    </marker>
+    <marker id="arrowHeadPurple" markerWidth="12" markerHeight="8" refX="10" refY="4" orient="auto">
+      <path d="M0,0 L12,4 L0,8 Z" fill="#a259ff"/>
+    </marker>
+    <marker id="arrowHeadWhite" markerWidth="12" markerHeight="8" refX="10" refY="4" orient="auto">
+      <path d="M0,0 L12,4 L0,8 Z" fill="#ffffff60"/>
+    </marker>
+  </defs>
+
+  <!-- ===================== BACKGROUND ===================== -->
+  <rect width="1920" height="2800" fill="url(#bgGrad)"/>
+
+  <!-- Subtle grid pattern -->
+  <g opacity="0.03">
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#fff" stroke-width="0.5"/>
+    </pattern>
+    <rect width="1920" height="2800" fill="url(#grid)"/>
+  </g>
+
+  <!-- ===================== HEADER ===================== -->
+  <g transform="translate(960, 80)">
+    <!-- Brand accent line -->
+    <rect x="-40" y="0" width="80" height="3" rx="1.5" fill="#ff9500" opacity="0.6"/>
+
+    <!-- Title -->
+    <text x="0" y="60" text-anchor="middle" fill="#ffffff" font-size="56" font-weight="800" letter-spacing="-2">
+      HARMONY
+    </text>
+    <text x="0" y="100" text-anchor="middle" fill="#b0aaa4" font-size="18" font-weight="600" letter-spacing="8" text-transform="uppercase">
+      DESIGN SYSTEM ECOSYSTEM
+    </text>
+    <text x="0" y="138" text-anchor="middle" fill="#787470" font-size="15" letter-spacing="1">
+      Scalability  |  Maintenance  |  Figma Synchronisation
+    </text>
+
+    <!-- EM Mendoza brand tag -->
+    <rect x="-70" y="155" width="140" height="28" rx="14" fill="none" stroke="#ffffff20" stroke-width="1"/>
+    <text x="0" y="174" text-anchor="middle" fill="#9e9893" font-size="11" font-weight="600" letter-spacing="3">
+      EM MENDOZA
+    </text>
+  </g>
+
+
+  <!-- ===================== SECTION 1: SOURCE OF TRUTH ===================== -->
+  <g transform="translate(0, 240)">
+    <!-- Section label -->
+    <rect x="80" y="0" width="200" height="32" rx="16" fill="#a259ff20" stroke="#a259ff40" stroke-width="1"/>
+    <text x="180" y="22" text-anchor="middle" fill="#a259ff" font-size="12" font-weight="700" letter-spacing="3">
+      SOURCE OF TRUTH
+    </text>
+
+    <!-- Figma cloud block -->
+    <g transform="translate(960, 100)">
+      <rect x="-380" y="-60" width="760" height="140" rx="20" fill="#1c1c20" stroke="#a259ff40" stroke-width="1.5" filter="url(#dropShadow)"/>
+
+      <!-- Figma logo area -->
+      <g transform="translate(-300, 0)">
+        <circle cx="0" cy="0" r="32" fill="#a259ff20" stroke="#a259ff" stroke-width="1.5"/>
+        <!-- Figma "F" simplified -->
+        <rect x="-10" y="-16" width="10" height="10" rx="5" fill="#f24e1e"/>
+        <rect x="0" y="-16" width="10" height="10" rx="5" fill="#ff7262"/>
+        <rect x="-10" y="-6" width="10" height="10" rx="5" fill="#a259ff"/>
+        <rect x="0" y="-6" width="10" height="10" rx="5" fill="#1abcfe"/>
+        <rect x="-10" y="4" width="10" height="10" rx="5" fill="#0acf83"/>
+      </g>
+
+      <text x="-220" y="-18" fill="#ffffff" font-size="24" font-weight="700">Figma Variables</text>
+      <text x="-220" y="8" fill="#787470" font-size="14">Single source of truth for all design tokens</text>
+      <text x="-220" y="30" fill="#a259ff" font-size="12" font-weight="600">MCP: get_variable_defs  |  get_design_context</text>
+
+      <!-- Priority badge -->
+      <g transform="translate(300, -20)">
+        <rect x="-40" y="-12" width="80" height="24" rx="12" fill="#ffffff08" stroke="#ffffff30" stroke-width="1"/>
+        <text x="0" y="4" text-anchor="middle" fill="#d0ccc8" font-size="11" font-weight="700">RANK #1</text>
+      </g>
+    </g>
+
+    <!-- Precedence chain -->
+    <g transform="translate(960, 210)">
+      <text x="0" y="0" text-anchor="middle" fill="#787470" font-size="12" letter-spacing="2">CONFLICT RESOLUTION PRECEDENCE (HIGHEST WINS)</text>
+
+      <g transform="translate(-500, 30)">
+        <rect x="0" y="0" width="220" height="40" rx="8" fill="#a259ff15" stroke="#a259ff40" stroke-width="1"/>
+        <text x="110" y="25" text-anchor="middle" fill="#a259ff" font-size="13" font-weight="600">1. Figma Variables</text>
+      </g>
+      <line x1="230" y1="250" x2="260" y2="250" stroke="#787470" stroke-width="1" marker-end="url(#arrowHeadWhite)" transform="translate(-500, 30)"/>
+      <g transform="translate(-240, 30)">
+        <rect x="0" y="0" width="220" height="40" rx="8" fill="#ffffff08" stroke="#ffffff25" stroke-width="1"/>
+        <text x="110" y="25" text-anchor="middle" fill="#d0ccc8" font-size="13" font-weight="600">2. primitives.json</text>
+      </g>
+      <line x1="230" y1="250" x2="260" y2="250" stroke="#787470" stroke-width="1" marker-end="url(#arrowHeadWhite)" transform="translate(-240, 30)"/>
+      <g transform="translate(20, 30)">
+        <rect x="0" y="0" width="220" height="40" rx="8" fill="#2d6bf415" stroke="#2d6bf440" stroke-width="1"/>
+        <text x="110" y="25" text-anchor="middle" fill="#2d6bf4" font-size="13" font-weight="600">3. semantic.json</text>
+      </g>
+      <line x1="230" y1="250" x2="260" y2="250" stroke="#787470" stroke-width="1" marker-end="url(#arrowHeadWhite)" transform="translate(20, 30)"/>
+      <g transform="translate(280, 30)">
+        <rect x="0" y="0" width="220" height="40" rx="8" fill="#1a9e5215" stroke="#1a9e5240" stroke-width="1"/>
+        <text x="110" y="25" text-anchor="middle" fill="#1a9e52" font-size="13" font-weight="600">4. components.json</text>
+      </g>
+      <line x1="230" y1="250" x2="260" y2="250" stroke="#787470" stroke-width="1" marker-end="url(#arrowHeadWhite)" transform="translate(280, 30)"/>
+      <g transform="translate(540, 30)">
+        <rect x="0" y="0" width="220" height="40" rx="8" fill="#e53e2a15" stroke="#e53e2a40" stroke-width="1"/>
+        <text x="110" y="16" text-anchor="middle" fill="#e53e2a" font-size="12" font-weight="600">5. Hardcoded values</text>
+        <text x="110" y="32" text-anchor="middle" fill="#e53e2a80" font-size="10">TREAT AS BUG</text>
+      </g>
+    </g>
+  </g>
+
+
+  <!-- ===================== SECTION 2: TOKEN ARCHITECTURE ===================== -->
+  <g transform="translate(0, 580)">
+    <!-- Section label -->
+    <rect x="80" y="0" width="260" height="32" rx="16" fill="#ffffff10" stroke="#ffffff20" stroke-width="1"/>
+    <text x="210" y="22" text-anchor="middle" fill="#d0ccc8" font-size="12" font-weight="700" letter-spacing="3">
+      TOKEN ARCHITECTURE
+    </text>
+    <text x="360" y="22" fill="#787470" font-size="12">Three tiers, one direction</text>
+
+    <!-- The big flow diagram -->
+    <!-- Tier 1: Primitives -->
+    <g transform="translate(960, 90)">
+      <rect x="-400" y="-50" width="800" height="180" rx="16" fill="#1c1c20" stroke="#ffffff18" stroke-width="1.5" filter="url(#dropShadow)"/>
+
+      <!-- Tier badge -->
+      <rect x="-390" y="-40" width="100" height="28" rx="6" fill="#ff9500" opacity="0.7"/>
+      <text x="-340" y="-20" text-anchor="middle" fill="#0d0d0d" font-size="13" font-weight="800">TIER 1</text>
+
+      <text x="-270" y="-20" fill="#ffffff" font-size="22" font-weight="700">PRIMITIVES</text>
+      <text x="-270" y="4" fill="#787470" font-size="13">Raw, immutable values exported from Figma. Never edit in code.</text>
+      <text x="-270" y="24" fill="#9e9893" font-size="12" font-weight="600">tokens/primitives.json</text>
+
+      <!-- Color swatches representing the 6 families -->
+      <g transform="translate(-350, 60)">
+        <text x="0" y="-6" fill="#787470" font-size="10" font-weight="600" letter-spacing="2">6 COLOR FAMILIES (50-950 SCALE)</text>
+        <!-- Brand -->
+        <rect x="0" y="6" width="80" height="36" rx="6" fill="#ff9500"/>
+        <text x="40" y="30" text-anchor="middle" fill="#0d0d0d" font-size="10" font-weight="700">Brand</text>
+        <!-- Neutral -->
+        <rect x="90" y="6" width="80" height="36" rx="6" fill="#787470"/>
+        <text x="130" y="30" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="700">Neutral</text>
+        <!-- Green -->
+        <rect x="180" y="6" width="80" height="36" rx="6" fill="#1a9e52"/>
+        <text x="220" y="30" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="700">Green</text>
+        <!-- Red -->
+        <rect x="270" y="6" width="80" height="36" rx="6" fill="#e53e2a"/>
+        <text x="310" y="30" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="700">Red</text>
+        <!-- Blue -->
+        <rect x="360" y="6" width="80" height="36" rx="6" fill="#2d6bf4"/>
+        <text x="400" y="30" text-anchor="middle" fill="#ffffff" font-size="10" font-weight="700">Blue</text>
+        <!-- Yellow -->
+        <rect x="450" y="6" width="80" height="36" rx="6" fill="#f5c518"/>
+        <text x="490" y="30" text-anchor="middle" fill="#0d0d0d" font-size="10" font-weight="700">Yellow</text>
+      </g>
+
+      <!-- Example tokens -->
+      <g transform="translate(200, 55)">
+        <text x="0" y="0" fill="#787470" font-size="10" font-weight="600" letter-spacing="2">EXAMPLES</text>
+        <text x="0" y="18" fill="#c8a070" font-size="12" font-family="monospace">--color-brand-500: #ff9500</text>
+        <text x="0" y="34" fill="#787470" font-size="12" font-family="monospace">--color-neutral-900: #2b2724</text>
+        <text x="0" y="50" fill="#2d6bf4" font-size="12" font-family="monospace">--color-blue-500: #2d6bf4</text>
+      </g>
+    </g>
+
+    <!-- Down arrow -->
+    <g transform="translate(960, 240)">
+      <line x1="0" y1="0" x2="0" y2="50" stroke="#787470" stroke-width="2" stroke-dasharray="6,4"/>
+      <polygon points="-8,50 8,50 0,64" fill="#9e9893"/>
+      <text x="20" y="35" fill="#78747080" font-size="11" font-weight="600">alias</text>
+    </g>
+
+    <!-- Tier 2: Semantic -->
+    <g transform="translate(960, 340)">
+      <rect x="-400" y="-50" width="800" height="210" rx="16" fill="#1c1c20" stroke="#2d6bf440" stroke-width="1.5" filter="url(#dropShadow)"/>
+
+      <rect x="-390" y="-40" width="100" height="28" rx="6" fill="#2d6bf4"/>
+      <text x="-340" y="-20" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="800">TIER 2</text>
+
+      <text x="-270" y="-20" fill="#ffffff" font-size="22" font-weight="700">SEMANTIC</text>
+      <text x="-270" y="4" fill="#787470" font-size="13">Intent-based aliases. Themes override this layer only.</text>
+      <text x="-270" y="24" fill="#2d6bf480" font-size="12" font-weight="600">tokens/semantic.json</text>
+
+      <!-- Semantic role categories -->
+      <g transform="translate(-370, 50)">
+        <!-- Background -->
+        <g>
+          <rect x="0" y="0" width="130" height="80" rx="8" fill="#2d6bf410" stroke="#2d6bf430" stroke-width="1"/>
+          <text x="65" y="20" text-anchor="middle" fill="#2d6bf4" font-size="11" font-weight="700">Background</text>
+          <text x="65" y="36" text-anchor="middle" fill="#787470" font-size="9">primary</text>
+          <text x="65" y="50" text-anchor="middle" fill="#787470" font-size="9">secondary</text>
+          <text x="65" y="64" text-anchor="middle" fill="#787470" font-size="9">tertiary</text>
+        </g>
+        <!-- Surface -->
+        <g transform="translate(145, 0)">
+          <rect x="0" y="0" width="130" height="80" rx="8" fill="#2d6bf410" stroke="#2d6bf430" stroke-width="1"/>
+          <text x="65" y="20" text-anchor="middle" fill="#2d6bf4" font-size="11" font-weight="700">Surface</text>
+          <text x="65" y="36" text-anchor="middle" fill="#787470" font-size="9">default / raised</text>
+          <text x="65" y="50" text-anchor="middle" fill="#787470" font-size="9">sunken / overlay</text>
+          <text x="65" y="64" text-anchor="middle" fill="#787470" font-size="9">interactive states</text>
+        </g>
+        <!-- Content -->
+        <g transform="translate(290, 0)">
+          <rect x="0" y="0" width="130" height="80" rx="8" fill="#2d6bf410" stroke="#2d6bf430" stroke-width="1"/>
+          <text x="65" y="20" text-anchor="middle" fill="#2d6bf4" font-size="11" font-weight="700">Content</text>
+          <text x="65" y="36" text-anchor="middle" fill="#787470" font-size="9">primary / secondary</text>
+          <text x="65" y="50" text-anchor="middle" fill="#787470" font-size="9">disabled / inverse</text>
+          <text x="65" y="64" text-anchor="middle" fill="#787470" font-size="9">brand / link</text>
+        </g>
+        <!-- Status -->
+        <g transform="translate(435, 0)">
+          <rect x="0" y="0" width="130" height="80" rx="8" fill="#2d6bf410" stroke="#2d6bf430" stroke-width="1"/>
+          <text x="65" y="20" text-anchor="middle" fill="#2d6bf4" font-size="11" font-weight="700">Status</text>
+          <text x="65" y="36" text-anchor="middle" fill="#1a9e52" font-size="9">positive (green)</text>
+          <text x="65" y="50" text-anchor="middle" fill="#e53e2a" font-size="9">negative (red)</text>
+          <text x="65" y="64" text-anchor="middle" fill="#f5c518" font-size="9">notice (yellow)</text>
+        </g>
+        <!-- Border -->
+        <g transform="translate(580, 0)">
+          <rect x="0" y="0" width="130" height="80" rx="8" fill="#2d6bf410" stroke="#2d6bf430" stroke-width="1"/>
+          <text x="65" y="20" text-anchor="middle" fill="#2d6bf4" font-size="11" font-weight="700">Border</text>
+          <text x="65" y="36" text-anchor="middle" fill="#787470" font-size="9">default / subtle</text>
+          <text x="65" y="50" text-anchor="middle" fill="#787470" font-size="9">strong / focus</text>
+          <text x="65" y="64" text-anchor="middle" fill="#787470" font-size="9">brand / status</text>
+        </g>
+      </g>
+
+      <!-- Light/Dark badge -->
+      <g transform="translate(260, -30)">
+        <rect x="0" y="0" width="120" height="28" rx="14" fill="#ffffff10" stroke="#ffffff20" stroke-width="1"/>
+        <circle cx="20" cy="14" r="6" fill="#f5f0eb"/>
+        <circle cx="40" cy="14" r="6" fill="#1a1410"/>
+        <text x="72" y="18" fill="#ffffff80" font-size="10" font-weight="600">Light / Dark</text>
+      </g>
+    </g>
+
+    <!-- Down arrow -->
+    <g transform="translate(960, 520)">
+      <line x1="0" y1="0" x2="0" y2="50" stroke="#2d6bf4" stroke-width="2" stroke-dasharray="6,4"/>
+      <polygon points="-8,50 8,50 0,64" fill="#2d6bf4"/>
+      <text x="20" y="35" fill="#2d6bf480" font-size="11" font-weight="600">scope</text>
+    </g>
+
+    <!-- Tier 3: Component -->
+    <g transform="translate(960, 620)">
+      <rect x="-400" y="-50" width="800" height="140" rx="16" fill="#1c1c20" stroke="#1a9e5240" stroke-width="1.5" filter="url(#dropShadow)"/>
+
+      <rect x="-390" y="-40" width="100" height="28" rx="6" fill="#1a9e52"/>
+      <text x="-340" y="-20" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="800">TIER 3</text>
+
+      <text x="-270" y="-20" fill="#ffffff" font-size="22" font-weight="700">COMPONENT</text>
+      <text x="-270" y="4" fill="#787470" font-size="13">Scoped aliases consumed by framework implementations.</text>
+      <text x="-270" y="24" fill="#1a9e5280" font-size="12" font-weight="600">tokens/components.json</text>
+
+      <!-- Component token examples -->
+      <g transform="translate(-350, 45)">
+        <rect x="0" y="0" width="155" height="30" rx="6" fill="#1a9e5210" stroke="#1a9e5230" stroke-width="1"/>
+        <text x="78" y="20" text-anchor="middle" fill="#1a9e52" font-size="11" font-family="monospace">button.primary.bg</text>
+
+        <rect x="170" y="0" width="140" height="30" rx="6" fill="#1a9e5210" stroke="#1a9e5230" stroke-width="1"/>
+        <text x="240" y="20" text-anchor="middle" fill="#1a9e52" font-size="11" font-family="monospace">card.shadow</text>
+
+        <rect x="325" y="0" width="140" height="30" rx="6" fill="#1a9e5210" stroke="#1a9e5230" stroke-width="1"/>
+        <text x="395" y="20" text-anchor="middle" fill="#1a9e52" font-size="11" font-family="monospace">input.border</text>
+
+        <rect x="480" y="0" width="160" height="30" rx="6" fill="#1a9e5210" stroke="#1a9e5230" stroke-width="1"/>
+        <text x="560" y="20" text-anchor="middle" fill="#1a9e52" font-size="11" font-family="monospace">badge.bg.positive</text>
+      </g>
+    </g>
+
+    <!-- Down arrow to output -->
+    <g transform="translate(960, 740)">
+      <line x1="0" y1="0" x2="0" y2="50" stroke="#1a9e52" stroke-width="2" stroke-dasharray="6,4"/>
+      <polygon points="-8,50 8,50 0,64" fill="#1a9e52"/>
+      <text x="20" y="35" fill="#1a9e5280" font-size="11" font-weight="600">generate</text>
+    </g>
+
+    <!-- Output: theme.css -->
+    <g transform="translate(960, 840)">
+      <rect x="-400" y="-50" width="800" height="120" rx="16" fill="#1c1c20" stroke="#e53e2a40" stroke-width="1.5" filter="url(#dropShadow)"/>
+
+      <rect x="-390" y="-40" width="120" height="28" rx="6" fill="#e53e2a"/>
+      <text x="-330" y="-20" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="800">OUTPUT</text>
+
+      <text x="-250" y="-20" fill="#ffffff" font-size="22" font-weight="700">foundations/theme.css</text>
+      <text x="-250" y="4" fill="#787470" font-size="13">Generated Tailwind v4 @theme. Never hand-edit.</text>
+
+      <!-- Tech badges -->
+      <g transform="translate(-350, 30)">
+        <rect x="0" y="0" width="110" height="26" rx="13" fill="#38bdf820" stroke="#38bdf840" stroke-width="1"/>
+        <text x="55" y="17" text-anchor="middle" fill="#38bdf8" font-size="11" font-weight="600">Tailwind v4</text>
+
+        <rect x="125" y="0" width="100" height="26" rx="13" fill="#ffffff10" stroke="#ffffff20" stroke-width="1"/>
+        <text x="175" y="17" text-anchor="middle" fill="#ffffff80" font-size="11" font-weight="600">@theme {}</text>
+
+        <rect x="240" y="0" width="130" height="26" rx="13" fill="#ffffff10" stroke="#ffffff20" stroke-width="1"/>
+        <text x="305" y="17" text-anchor="middle" fill="#ffffff80" font-size="11" font-weight="600">CSS Variables</text>
+
+        <rect x="385" y="0" width="160" height="26" rx="13" fill="#ffffff10" stroke="#ffffff20" stroke-width="1"/>
+        <text x="465" y="17" text-anchor="middle" fill="#ffffff80" font-size="11" font-weight="600">Utility Classes</text>
+      </g>
+    </g>
+
+    <!-- ONE DIRECTION callout -->
+    <g transform="translate(1440, 400)">
+      <rect x="0" y="-60" width="280" height="130" rx="12" fill="#ffffff05" stroke="#ffffff18" stroke-width="1" stroke-dasharray="4,4"/>
+      <text x="140" y="-34" text-anchor="middle" fill="#d0ccc8" font-size="14" font-weight="800">ONE DIRECTION ONLY</text>
+      <text x="140" y="-12" text-anchor="middle" fill="#787470" font-size="12">Primitives flow DOWN.</text>
+      <text x="140" y="8" text-anchor="middle" fill="#787470" font-size="12">Components never reference</text>
+      <text x="140" y="26" text-anchor="middle" fill="#787470" font-size="12">primitives directly.</text>
+      <text x="140" y="52" text-anchor="middle" fill="#e53e2a" font-size="11" font-weight="600">Reversing direction = BUG</text>
+    </g>
+  </g>
+
+
+  <!-- ===================== SECTION 3: CROSS-FRAMEWORK OUTPUT ===================== -->
+  <g transform="translate(0, 1530)">
+    <rect x="80" y="0" width="280" height="32" rx="16" fill="#1a9e5220" stroke="#1a9e5240" stroke-width="1"/>
+    <text x="220" y="22" text-anchor="middle" fill="#1a9e52" font-size="12" font-weight="700" letter-spacing="3">
+      CROSS-FRAMEWORK OUTPUT
+    </text>
+
+    <!-- Three framework cards -->
+    <!-- React -->
+    <g transform="translate(260, 80)">
+      <rect x="0" y="0" width="360" height="200" rx="16" fill="#1c1c20" stroke="#61dafb40" stroke-width="1.5" filter="url(#dropShadow)"/>
+      <circle cx="40" cy="40" r="22" fill="#61dafb15" stroke="#61dafb" stroke-width="1.5"/>
+      <text x="40" y="46" text-anchor="middle" fill="#61dafb" font-size="16" font-weight="700">R</text>
+      <text x="80" y="36" fill="#ffffff" font-size="20" font-weight="700">React</text>
+      <text x="80" y="54" fill="#787470" font-size="12">TSX + Tailwind v4</text>
+
+      <text x="30" y="90" fill="#787470" font-size="12">components/web/react/</text>
+      <text x="30" y="114" fill="#61dafb80" font-size="11" font-family="monospace">Function components + hooks</text>
+      <text x="30" y="134" fill="#61dafb80" font-size="11" font-family="monospace">"use client" when interactive</text>
+      <text x="30" y="154" fill="#61dafb80" font-size="11" font-family="monospace">CSS vars + Tailwind utilities</text>
+      <text x="30" y="178" fill="#61dafb50" font-size="10">React 18/19 compatible</text>
+    </g>
+
+    <!-- Vue -->
+    <g transform="translate(660, 80)">
+      <rect x="0" y="0" width="360" height="200" rx="16" fill="#1c1c20" stroke="#42b88340" stroke-width="1.5" filter="url(#dropShadow)"/>
+      <circle cx="40" cy="40" r="22" fill="#42b88315" stroke="#42b883" stroke-width="1.5"/>
+      <text x="40" y="46" text-anchor="middle" fill="#42b883" font-size="16" font-weight="700">V</text>
+      <text x="80" y="36" fill="#ffffff" font-size="20" font-weight="700">Vue</text>
+      <text x="80" y="54" fill="#787470" font-size="12">Composition API</text>
+
+      <text x="30" y="90" fill="#787470" font-size="12">components/web/vue/</text>
+      <text x="30" y="114" fill="#42b88380" font-size="11" font-family="monospace">&lt;script setup&gt; + defineProps</text>
+      <text x="30" y="134" fill="#42b88380" font-size="11" font-family="monospace">CSS vars + Tailwind utilities</text>
+      <text x="30" y="154" fill="#42b88380" font-size="11" font-family="monospace">Same prop contract as React</text>
+      <text x="30" y="178" fill="#42b88350" font-size="10">Vue 3 Composition API</text>
+    </g>
+
+    <!-- React Native -->
+    <g transform="translate(1060, 80)">
+      <rect x="0" y="0" width="360" height="200" rx="16" fill="#1c1c20" stroke="#61dafb40" stroke-width="1.5" filter="url(#dropShadow)"/>
+      <circle cx="40" cy="40" r="22" fill="#61dafb15" stroke="#61dafb" stroke-width="1.5"/>
+      <text x="40" y="46" text-anchor="middle" fill="#61dafb" font-size="14" font-weight="700">RN</text>
+      <text x="80" y="36" fill="#ffffff" font-size="20" font-weight="700">React Native</text>
+      <text x="80" y="54" fill="#787470" font-size="12">Token objects</text>
+
+      <text x="30" y="90" fill="#787470" font-size="12">components/react-native/</text>
+      <text x="30" y="114" fill="#61dafb80" font-size="11" font-family="monospace">Token objects / StyleSheet</text>
+      <text x="30" y="134" fill="#61dafb80" font-size="11" font-family="monospace">No CSS vars (native bridge)</text>
+      <text x="30" y="154" fill="#61dafb80" font-size="11" font-family="monospace">Touch-first, 44pt targets</text>
+      <text x="30" y="178" fill="#61dafb50" font-size="10">Same prop shape as web</text>
+    </g>
+
+    <!-- Shared prop contract callout -->
+    <g transform="translate(960, 320)">
+      <rect x="-320" y="0" width="640" height="50" rx="10" fill="#ffffff08" stroke="#ffffff18" stroke-width="1"/>
+      <text x="0" y="20" text-anchor="middle" fill="#d0ccc8" font-size="14" font-weight="700">IDENTICAL PROP CONTRACT</text>
+      <text x="0" y="38" text-anchor="middle" fill="#787470" font-size="12">camelCase props  |  lowercase variant values  |  All states: default, hover, focus, active, disabled, loading, error</text>
+    </g>
+
+    <!-- Code Connect bridge -->
+    <g transform="translate(1500, 140)">
+      <rect x="0" y="0" width="260" height="140" rx="12" fill="#a259ff10" stroke="#a259ff30" stroke-width="1"/>
+      <text x="130" y="28" text-anchor="middle" fill="#a259ff" font-size="14" font-weight="700">Code Connect</text>
+      <text x="130" y="48" text-anchor="middle" fill="#787470" font-size="11">Bridges Figma to code</text>
+
+      <text x="20" y="76" fill="#a259ff80" font-size="10" font-family="monospace">Figma variant  =  code prop</text>
+      <text x="20" y="94" fill="#a259ff80" font-size="10" font-family="monospace">Figma size     =  code size</text>
+      <text x="20" y="112" fill="#a259ff80" font-size="10" font-family="monospace">Figma disabled =  code disabled</text>
+      <text x="20" y="130" fill="#787470" font-size="10">code-connect/ mappings</text>
+    </g>
+  </g>
+
+
+  <!-- ===================== SECTION 4: FIGMA SYNC WORKFLOW ===================== -->
+  <g transform="translate(0, 1940)">
+    <rect x="80" y="0" width="320" height="32" rx="16" fill="#a259ff20" stroke="#a259ff40" stroke-width="1"/>
+    <text x="240" y="22" text-anchor="middle" fill="#a259ff" font-size="12" font-weight="700" letter-spacing="3">
+      FIGMA SYNC WORKFLOW
+    </text>
+    <text x="420" y="22" fill="#787470" font-size="12">Design-to-code pipeline (9 steps)</text>
+
+    <!-- Pipeline steps -->
+    <g transform="translate(100, 60)">
+      <!-- Step 1 -->
+      <g transform="translate(0, 0)">
+        <rect x="0" y="0" width="380" height="60" rx="10" fill="#1c1c20" stroke="#a259ff30" stroke-width="1"/>
+        <circle cx="30" cy="30" r="16" fill="#a259ff" opacity="0.9"/>
+        <text x="30" y="36" text-anchor="middle" fill="#fff" font-size="13" font-weight="800">1</text>
+        <text x="60" y="22" fill="#ffffff" font-size="13" font-weight="600">Identify Node</text>
+        <text x="60" y="40" fill="#787470" font-size="11">Get file key + node id from Figma URL</text>
+      </g>
+      <!-- Step 2 -->
+      <g transform="translate(0, 72)">
+        <rect x="0" y="0" width="380" height="60" rx="10" fill="#1c1c20" stroke="#a259ff30" stroke-width="1"/>
+        <circle cx="30" cy="30" r="16" fill="#a259ff" opacity="0.9"/>
+        <text x="30" y="36" text-anchor="middle" fill="#fff" font-size="13" font-weight="800">2</text>
+        <text x="60" y="22" fill="#ffffff" font-size="13" font-weight="600">Pull Variables</text>
+        <text x="60" y="40" fill="#a259ff80" font-size="11" font-family="monospace">MCP get_variable_defs</text>
+      </g>
+      <!-- Step 3 -->
+      <g transform="translate(0, 144)">
+        <rect x="0" y="0" width="380" height="60" rx="10" fill="#1c1c20" stroke="#ffffff18" stroke-width="1"/>
+        <circle cx="30" cy="30" r="16" fill="#ff9500" opacity="0.5"/>
+        <text x="30" y="36" text-anchor="middle" fill="#fff" font-size="13" font-weight="800">3</text>
+        <text x="60" y="22" fill="#ffffff" font-size="13" font-weight="600">Reconcile Primitives</text>
+        <text x="60" y="40" fill="#787470" font-size="11">Add missing values to primitives.json</text>
+      </g>
+      <!-- Step 4 -->
+      <g transform="translate(0, 216)">
+        <rect x="0" y="0" width="380" height="60" rx="10" fill="#1c1c20" stroke="#2d6bf430" stroke-width="1"/>
+        <circle cx="30" cy="30" r="16" fill="#2d6bf4" opacity="0.9"/>
+        <text x="30" y="36" text-anchor="middle" fill="#fff" font-size="13" font-weight="800">4</text>
+        <text x="60" y="22" fill="#ffffff" font-size="13" font-weight="600">Map Semantic Tokens</text>
+        <text x="60" y="40" fill="#787470" font-size="11">No raw values in components, ever</text>
+      </g>
+      <!-- Step 5 -->
+      <g transform="translate(0, 288)">
+        <rect x="0" y="0" width="380" height="60" rx="10" fill="#1c1c20" stroke="#a259ff30" stroke-width="1"/>
+        <circle cx="30" cy="30" r="16" fill="#a259ff" opacity="0.9"/>
+        <text x="30" y="36" text-anchor="middle" fill="#fff" font-size="13" font-weight="800">5</text>
+        <text x="60" y="22" fill="#ffffff" font-size="13" font-weight="600">Get Design Context</text>
+        <text x="60" y="40" fill="#a259ff80" font-size="11" font-family="monospace">MCP get_design_context</text>
+      </g>
+
+      <!-- Right column -->
+      <!-- Step 6 -->
+      <g transform="translate(420, 0)">
+        <rect x="0" y="0" width="380" height="60" rx="10" fill="#1c1c20" stroke="#1a9e5230" stroke-width="1"/>
+        <circle cx="30" cy="30" r="16" fill="#1a9e52" opacity="0.9"/>
+        <text x="30" y="36" text-anchor="middle" fill="#fff" font-size="13" font-weight="800">6</text>
+        <text x="60" y="22" fill="#ffffff" font-size="13" font-weight="600">Generate theme.css</text>
+        <text x="60" y="40" fill="#787470" font-size="11">Regenerate foundations + token JSON</text>
+      </g>
+      <!-- Step 7 -->
+      <g transform="translate(420, 72)">
+        <rect x="0" y="0" width="380" height="60" rx="10" fill="#1c1c20" stroke="#1a9e5230" stroke-width="1"/>
+        <circle cx="30" cy="30" r="16" fill="#1a9e52" opacity="0.9"/>
+        <text x="30" y="36" text-anchor="middle" fill="#fff" font-size="13" font-weight="800">7</text>
+        <text x="60" y="22" fill="#ffffff" font-size="13" font-weight="600">Build Components</text>
+        <text x="60" y="40" fill="#787470" font-size="11">Against semantic + component tokens only</text>
+      </g>
+      <!-- Step 8 -->
+      <g transform="translate(420, 144)">
+        <rect x="0" y="0" width="380" height="60" rx="10" fill="#1c1c20" stroke="#a259ff30" stroke-width="1"/>
+        <circle cx="30" cy="30" r="16" fill="#a259ff" opacity="0.9"/>
+        <text x="30" y="36" text-anchor="middle" fill="#fff" font-size="13" font-weight="800">8</text>
+        <text x="60" y="22" fill="#ffffff" font-size="13" font-weight="600">Prepare Code Connect</text>
+        <text x="60" y="40" fill="#787470" font-size="11">Map Figma component to Vue/React/RN</text>
+      </g>
+      <!-- Step 9 -->
+      <g transform="translate(420, 216)">
+        <rect x="0" y="0" width="380" height="60" rx="10" fill="#1c1c20" stroke="#ffffff18" stroke-width="1"/>
+        <circle cx="30" cy="30" r="16" fill="#ff9500" opacity="0.5"/>
+        <text x="30" y="36" text-anchor="middle" fill="#fff" font-size="13" font-weight="800">9</text>
+        <text x="60" y="22" fill="#ffffff" font-size="13" font-weight="600">Verify</text>
+        <text x="60" y="40" fill="#787470" font-size="11">WCAG AA contrast + Tailwind utility check</text>
+      </g>
+
+      <!-- Connecting flow arrows -->
+      <line x1="390" y1="30" x2="410" y2="30" stroke="#787470" stroke-width="1" stroke-dasharray="4,3"/>
+    </g>
+
+    <!-- Three entry points (maintenance) -->
+    <g transform="translate(960, 60)">
+      <g transform="translate(100, 0)">
+        <rect x="0" y="0" width="680" height="350" rx="16" fill="#1c1c20" stroke="#ffffff15" stroke-width="1" filter="url(#dropShadow)"/>
+        <text x="340" y="32" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="700">MAINTENANCE ENTRY POINTS</text>
+        <text x="340" y="52" text-anchor="middle" fill="#787470" font-size="12">Where to edit depends on what changed</text>
+
+        <!-- Entry A -->
+        <g transform="translate(30, 75)">
+          <rect x="0" y="0" width="200" height="28" rx="6" fill="#ffffff08" stroke="#ffffff25" stroke-width="1"/>
+          <text x="100" y="19" text-anchor="middle" fill="#d0ccc8" font-size="12" font-weight="700">A: Visual Rule Changed</text>
+          <text x="0" y="48" fill="#787470" font-size="10">1. docs/DESIGN.md</text>
+          <text x="0" y="64" fill="#787470" font-size="10">2. tokens/semantic.json</text>
+          <text x="0" y="80" fill="#787470" font-size="10">3. foundations/theme.css</text>
+          <text x="0" y="96" fill="#78747060" font-size="10">4. AGENTS.md (if scope changed)</text>
+        </g>
+
+        <!-- Entry B -->
+        <g transform="translate(250, 75)">
+          <rect x="0" y="0" width="200" height="28" rx="6" fill="#2d6bf415" stroke="#2d6bf440" stroke-width="1"/>
+          <text x="100" y="19" text-anchor="middle" fill="#2d6bf4" font-size="12" font-weight="700">B: Token Value Changed</text>
+          <text x="0" y="48" fill="#787470" font-size="10">1. tokens/semantic.json</text>
+          <text x="0" y="64" fill="#787470" font-size="10">2. foundations/theme.css</text>
+        </g>
+
+        <!-- Entry C -->
+        <g transform="translate(470, 75)">
+          <rect x="0" y="0" width="200" height="28" rx="6" fill="#a259ff15" stroke="#a259ff40" stroke-width="1"/>
+          <text x="100" y="19" text-anchor="middle" fill="#a259ff" font-size="12" font-weight="700">C: New Figma Primitive</text>
+          <text x="0" y="48" fill="#787470" font-size="10">1. tokens/primitives.json</text>
+          <text x="0" y="64" fill="#787470" font-size="10">2. tokens/semantic.json</text>
+          <text x="0" y="80" fill="#787470" font-size="10">3. foundations/theme.css</text>
+        </g>
+
+        <!-- Definition of Done -->
+        <g transform="translate(30, 200)">
+          <text x="0" y="0" fill="#d0ccc8" font-size="13" font-weight="700">DEFINITION OF DONE</text>
+          <g transform="translate(0, 16)">
+            <rect x="0" y="0" width="12" height="12" rx="2" fill="none" stroke="#1a9e52" stroke-width="1.5"/>
+            <text x="20" y="11" fill="#787470" font-size="11">All values trace to a primitive or semantic token</text>
+          </g>
+          <g transform="translate(0, 36)">
+            <rect x="0" y="0" width="12" height="12" rx="2" fill="none" stroke="#1a9e52" stroke-width="1.5"/>
+            <text x="20" y="11" fill="#787470" font-size="11">theme.css regenerated, every token has a Tailwind utility</text>
+          </g>
+          <g transform="translate(0, 56)">
+            <rect x="0" y="0" width="12" height="12" rx="2" fill="none" stroke="#1a9e52" stroke-width="1.5"/>
+            <text x="20" y="11" fill="#787470" font-size="11">Light + dark semantic sets both resolve</text>
+          </g>
+          <g transform="translate(0, 76)">
+            <rect x="0" y="0" width="12" height="12" rx="2" fill="none" stroke="#1a9e52" stroke-width="1.5"/>
+            <text x="20" y="11" fill="#787470" font-size="11">Contrast meets WCAG AA (AAA for body)</text>
+          </g>
+          <g transform="translate(0, 96)">
+            <rect x="0" y="0" width="12" height="12" rx="2" fill="none" stroke="#1a9e52" stroke-width="1.5"/>
+            <text x="20" y="11" fill="#787470" font-size="11">Props match across Vue / React / RN + Code Connect prepared</text>
+          </g>
+          <g transform="translate(0, 116)">
+            <rect x="0" y="0" width="12" height="12" rx="2" fill="none" stroke="#1a9e52" stroke-width="1.5"/>
+            <text x="20" y="11" fill="#787470" font-size="11">Docs updated for any new token or component</text>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+
+
+  <!-- ===================== SECTION 5: TYPOGRAPHY & SURFACES ===================== -->
+  <g transform="translate(0, 2360)">
+    <rect x="80" y="0" width="320" height="32" rx="16" fill="#ffffff15" stroke="#ffffff20" stroke-width="1"/>
+    <text x="240" y="22" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="700" letter-spacing="3">
+      TYPOGRAPHY &amp; SURFACES
+    </text>
+
+    <!-- Typography card -->
+    <g transform="translate(100, 60)">
+      <rect x="0" y="0" width="840" height="340" rx="16" fill="#1c1c20" stroke="#ffffff15" stroke-width="1" filter="url(#dropShadow)"/>
+
+      <text x="40" y="40" fill="#ffffff" font-size="20" font-weight="700">Typography System</text>
+      <text x="40" y="60" fill="#787470" font-size="12">Three families mapped to --font-display, --font-sans, --font-body</text>
+
+      <!-- Clash Grotesk -->
+      <g transform="translate(40, 85)">
+        <rect x="0" y="0" width="240" height="100" rx="10" fill="#ffffff06" stroke="#ffffff18" stroke-width="1"/>
+        <text x="120" y="25" text-anchor="middle" fill="#c8a070" font-size="11" font-weight="600" letter-spacing="2">DISPLAY</text>
+        <text x="120" y="55" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="800">Clash Grotesk</text>
+        <text x="120" y="78" text-anchor="middle" fill="#787470" font-size="11">Bold 700 | Heroes, titles</text>
+        <text x="120" y="92" text-anchor="middle" fill="#9e9893" font-size="10">--font-display</text>
+      </g>
+
+      <!-- Space Grotesk -->
+      <g transform="translate(300, 85)">
+        <rect x="0" y="0" width="240" height="100" rx="10" fill="#2d6bf410" stroke="#2d6bf430" stroke-width="1"/>
+        <text x="120" y="25" text-anchor="middle" fill="#2d6bf4" font-size="11" font-weight="600" letter-spacing="2">UI / LABELS</text>
+        <text x="120" y="55" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="600">Space Grotesk</text>
+        <text x="120" y="78" text-anchor="middle" fill="#787470" font-size="11">400/600/700 | Buttons, nav</text>
+        <text x="120" y="92" text-anchor="middle" fill="#2d6bf460" font-size="10">--font-sans</text>
+      </g>
+
+      <!-- Roboto -->
+      <g transform="translate(560, 85)">
+        <rect x="0" y="0" width="240" height="100" rx="10" fill="#1a9e5210" stroke="#1a9e5230" stroke-width="1"/>
+        <text x="120" y="25" text-anchor="middle" fill="#1a9e52" font-size="11" font-weight="600" letter-spacing="2">BODY</text>
+        <text x="120" y="55" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="400">Roboto</text>
+        <text x="120" y="78" text-anchor="middle" fill="#787470" font-size="11">400/500/700 | Paragraphs</text>
+        <text x="120" y="92" text-anchor="middle" fill="#1a9e5260" font-size="10">--font-body</text>
+      </g>
+
+      <!-- Scale preview -->
+      <g transform="translate(40, 210)">
+        <text x="0" y="0" fill="#787470" font-size="10" font-weight="600" letter-spacing="2">SCALE PREVIEW</text>
+        <text x="0" y="30" fill="#ffffff" font-size="36" font-weight="800">heading.9xl — 192px</text>
+        <text x="0" y="56" fill="#ffffff90" font-size="22" font-weight="700">heading.xl — 48px</text>
+        <text x="0" y="76" fill="#ffffff70" font-size="16" font-weight="400">text.md — 16px (default body)</text>
+        <text x="0" y="92" fill="#ffffff50" font-size="12" font-weight="400">text.xs — 12px (labels, badges)</text>
+        <text x="500" y="92" fill="#78747060" font-size="10">4pt grid, min 16px body for WCAG AA</text>
+      </g>
+    </g>
+
+    <!-- Surfaces card -->
+    <g transform="translate(980, 60)">
+      <rect x="0" y="0" width="760" height="340" rx="16" fill="#1c1c20" stroke="#ffffff15" stroke-width="1" filter="url(#dropShadow)"/>
+
+      <text x="40" y="40" fill="#ffffff" font-size="20" font-weight="700">Target Surfaces</text>
+      <text x="40" y="60" fill="#787470" font-size="12">Components adapt density and interaction per surface</text>
+
+      <!-- Website -->
+      <g transform="translate(40, 85)">
+        <rect x="0" y="0" width="210" height="120" rx="10" fill="#ffffff06" stroke="#ffffff18" stroke-width="1"/>
+        <text x="105" y="28" text-anchor="middle" fill="#d0ccc8" font-size="13" font-weight="700">Website</text>
+        <text x="105" y="50" text-anchor="middle" fill="#787470" font-size="11">Marketing / editorial</text>
+        <text x="105" y="68" text-anchor="middle" fill="#787470" font-size="11">Big titles, media-rich</text>
+        <text x="105" y="86" text-anchor="middle" fill="#787470" font-size="11">Video heroes, galleries</text>
+        <text x="105" y="108" text-anchor="middle" fill="#9e9893" font-size="10">Standard density</text>
+      </g>
+
+      <!-- Mobile -->
+      <g transform="translate(270, 85)">
+        <rect x="0" y="0" width="210" height="120" rx="10" fill="#2d6bf410" stroke="#2d6bf430" stroke-width="1"/>
+        <text x="105" y="28" text-anchor="middle" fill="#2d6bf4" font-size="13" font-weight="700">Mobile Apps</text>
+        <text x="105" y="50" text-anchor="middle" fill="#787470" font-size="11">React Native parity</text>
+        <text x="105" y="68" text-anchor="middle" fill="#787470" font-size="11">Touch-first, 44pt targets</text>
+        <text x="105" y="86" text-anchor="middle" fill="#787470" font-size="11">Compact density</text>
+        <text x="105" y="108" text-anchor="middle" fill="#2d6bf450" font-size="10">Compact density</text>
+      </g>
+
+      <!-- Dashboards -->
+      <g transform="translate(500, 85)">
+        <rect x="0" y="0" width="210" height="120" rx="10" fill="#1a9e5210" stroke="#1a9e5230" stroke-width="1"/>
+        <text x="105" y="28" text-anchor="middle" fill="#1a9e52" font-size="13" font-weight="700">Dashboards</text>
+        <text x="105" y="50" text-anchor="middle" fill="#787470" font-size="11">Data-dense, tables</text>
+        <text x="105" y="68" text-anchor="middle" fill="#787470" font-size="11">Controls, status</text>
+        <text x="105" y="86" text-anchor="middle" fill="#787470" font-size="11">Feedback patterns</text>
+        <text x="105" y="108" text-anchor="middle" fill="#1a9e5250" font-size="10">Dense layout</text>
+      </g>
+
+      <!-- Spacing scale -->
+      <g transform="translate(40, 230)">
+        <text x="0" y="0" fill="#787470" font-size="10" font-weight="600" letter-spacing="2">SPACING SCALE (4pt GRID)</text>
+        <g transform="translate(0, 16)">
+          <rect x="0" y="0" width="4" height="20" rx="1" fill="#78747040"/>
+          <text x="12" y="14" fill="#787470" font-size="10">xs 4px</text>
+
+          <rect x="80" y="0" width="8" height="20" rx="1" fill="#78747050"/>
+          <text x="96" y="14" fill="#787470" font-size="10">sm 8px</text>
+
+          <rect x="160" y="0" width="16" height="20" rx="1" fill="#78747060"/>
+          <text x="184" y="14" fill="#787470" font-size="10">md 16px</text>
+
+          <rect x="255" y="0" width="24" height="20" rx="1" fill="#78747070"/>
+          <text x="287" y="14" fill="#787470" font-size="10">lg 24px</text>
+
+          <rect x="355" y="0" width="32" height="20" rx="1" fill="#78747080"/>
+          <text x="395" y="14" fill="#787470" font-size="10">xl 32px</text>
+
+          <rect x="460" y="0" width="48" height="20" rx="1" fill="#78747090"/>
+          <text x="516" y="14" fill="#787470" font-size="10">2xl 48px</text>
+
+          <rect x="580" y="0" width="64" height="20" rx="1" fill="#787470a0"/>
+          <text x="652" y="14" fill="#787470" font-size="10">3xl 64px</text>
+        </g>
+
+        <!-- Radius -->
+        <g transform="translate(0, 56)">
+          <text x="0" y="0" fill="#787470" font-size="10" font-weight="600" letter-spacing="2">RADIUS</text>
+          <rect x="0" y="10" width="30" height="30" rx="2" fill="none" stroke="#78747060" stroke-width="1"/>
+          <text x="38" y="30" fill="#787470" font-size="9">sm</text>
+          <rect x="70" y="10" width="30" height="30" rx="4" fill="none" stroke="#78747070" stroke-width="1"/>
+          <text x="108" y="30" fill="#787470" font-size="9">md</text>
+          <rect x="140" y="10" width="30" height="30" rx="6" fill="none" stroke="#78747080" stroke-width="1"/>
+          <text x="178" y="30" fill="#787470" font-size="9">lg</text>
+          <rect x="210" y="10" width="30" height="30" rx="10" fill="none" stroke="#78747090" stroke-width="1"/>
+          <text x="248" y="30" fill="#787470" font-size="9">xl</text>
+          <rect x="280" y="10" width="30" height="30" rx="15" fill="none" stroke="#787470a0" stroke-width="1"/>
+          <text x="318" y="30" fill="#787470" font-size="9">full</text>
+        </g>
+      </g>
+    </g>
+  </g>
+
+
+  <!-- ===================== FOOTER ===================== -->
+  <g transform="translate(960, 2750)">
+    <rect x="-40" y="0" width="80" height="3" rx="1.5" fill="#787470" opacity="0.4"/>
+    <text x="0" y="28" text-anchor="middle" fill="#787470" font-size="12" letter-spacing="1">
+      Harmony Design System  |  EM Mendoza  |  Figma-first, token-driven, cross-framework
+    </text>
+  </g>
+
+</svg>

@@ -9,7 +9,7 @@
 > - Figma AI design → `SKILL.md`
 > - Figma structure → `docs/FIGMA-CONFIG.md`
 > - Token values → `tokens/*.json` + `foundations/theme.css`
-> - **When this file changes → run `.devin/workflows/design-language-sync.md`.**
+> - **When this file changes → run `.devin/skills/design-language-sync/SKILL.md`.**
 
 ---
 
@@ -25,6 +25,7 @@
   choice for modern web and mobile applications.
 - Success = consistency across surfaces, faster time-to-screen, one source of truth.
 - Fully accessible for free, open source under MIT license.
+- Fashion-forward and trend-aware, but never sacrificing usability or accessibility.
 
 ### Commercial goals
 - Adoption targets: 50+ projects using Harmony components.
@@ -92,8 +93,14 @@ Common thread: **big titles, organised layouts, effortless readability**.
 ### Color usage
 - **Brand orange `#ff9500`** — primary CTA, emphasis, active states.
 - **Neutral warm gray** — surfaces, text, borders, hierarchy.
-- **Green / Red / Blue / Yellow** — feedback only (success/error/info/warning);
-  never decorative.
+- **Green / Red / Blue / Yellow** — status only, via `status.{positive|negative|info|notice}`
+  (green/red/blue/yellow); never decorative.
+- **Interaction states** — every interactive role carries `hover` / `pressed` /
+  `selected` / `disabled` (and `border.focus`); never hand-tweak a primitive per state.
+- **Surface vs background** — `background.*` is the page/app canvas; `surface.*`
+  (default/raised/sunken/overlay) is for elevated components (cards, menus, sheets).
+- **Overlays** — `overlay.{scrim|backdrop|hover|pressed}` are alpha washes over a
+  neutral primitive, for modals/backdrops and pointer feedback.
 - **Dark mode** — same roles, inverted primitives; avoid pure black.
 
 ### Typography
@@ -118,6 +125,44 @@ Common thread: **big titles, organised layouts, effortless readability**.
 - Display can be oversized + tightly tracked; body stays calm and legible.
 - Never mix more than one display family in a single composition.
 
+### Font family semantic tokens & binding rules
+
+Harmony uses three font families, each exposed as a **semantic variable** that all
+text nodes must bind to — never hardcode a font family string directly.
+
+| Family | Semantic token | Primitive alias | Role |
+| --- | --- | --- | --- |
+| Clash Grotesk | `font/display` | `family/display` | Display & heading type (h1–h6, hero titles) |
+| Space Grotesk | `font/sans` | `family/sans` | UI labels, captions, small text, navigation |
+| **Roboto** | **`font/body`** | **`family/body`** | **Body text, paragraphs, descriptions, form inputs** |
+
+**Binding rule:** Every text node in Figma must bind its `fontFamily` property to the
+appropriate semantic token (`font/display`, `font/sans`, or `font/body`) via
+`node.setBoundVariable("fontFamily", variable)`. Raw family strings ("Roboto",
+"Clash Grotesk", "Space Grotesk") must never appear as unbound hardcoded values.
+
+**Font weight tokens:** Font weights are also tokenised and must be bound:
+
+| Weight name | Semantic token | Numeric value |
+| --- | --- | --- |
+| Regular | `font-weight/regular` | 400 |
+| Medium | `font-weight/medium` | 500 |
+| SemiBold | `font-weight/semibold` | 600 |
+| Bold | `font-weight/bold` | 700 |
+
+Every text node must bind `fontWeight` via `node.setBoundVariable("fontWeight", variable)`.
+
+**Complete text node binding checklist (all mandatory):**
+
+| Property | Token source | Example binding |
+| --- | --- | --- |
+| `fontFamily` | `font/display`, `font/sans`, `font/body` | `node.setBoundVariable("fontFamily", fontBodyVar)` |
+| `fontWeight` | `font-weight/regular` … `font-weight/bold` | `node.setBoundVariable("fontWeight", weightVar)` |
+| `fontSize` | `heading.*/size`, `text.*/size` | `node.setBoundVariable("fontSize", sizeVar)` |
+| `lineHeight` | `heading.*/line-height`, `text.*/line-height` | `node.setBoundVariable("lineHeight", lhVar)` |
+| `letterSpacing` | `heading.*/letter-spacing`, `text.*/letter-spacing` | `node.setBoundVariable("letterSpacing", lsVar)` |
+| Fill color | `content/primary`, `content/secondary`, etc. | `figma.variables.setBoundVariableForPaint(fill, "color", colorVar)` |
+
 ### Spacing & rhythm
 - Base unit **4pt**; steps 8/16/24/32/48/64. Use `space-*` tokens — no arbitrary values.
 - Large vertical gaps between sections, tight gaps inside components.
@@ -127,7 +172,13 @@ Common thread: **big titles, organised layouts, effortless readability**.
 - Shadows are functional (cards, dropdowns), not decorative.
 
 ### Iconography
-Lucide, 1.5 stroke, 24x24 default / 20x20 compact
+- **Library:** **Material Design Icons** (https://pictogrammers.com/library/mdi/).
+- **Style:** Filled by default for UI clarity; outline only when the component spec explicitly calls for it.
+- **Sizing:** `24x24` default / `20x20` compact / `16x16` inline / `32x32` feature.
+- **Stroke / geometry:** Use the SVG as-is; do not modify the path stroke or weight.
+- **Naming:** Reference icons by their MDI name (`mdi-{name}`), e.g. `mdi-arrow-right`, `mdi-menu`, `mdi-close`, `mdi-chevron-down`.
+- **Icon tokens in Figma:** use the existing `Icon` component set (`ui/Icon`) with size variants `sm(16)`, `md(20)`, `lg(24)`, `xl(32)` and swap the icon instance from the MDI library.
+- **Accessibility:** icon-only controls must have an accessible name; decorative icons must have no semantic label.
 
 ### Imagery & media
 - Photography: high-contrast, editorial crops, human/product context.
@@ -138,19 +189,83 @@ Lucide, 1.5 stroke, 24x24 default / 20x20 compact
 
 ## 5. Layout & spacing
 
+> Rules below are **derived from the EM Mendoza portfolio** (`2026-ultimate-portfolio`)
+> and normalised onto Harmony's 4pt token scale. Components consume **semantic
+> space/radius tokens only** — the px anchors here are for orientation, never to be
+> hardcoded (see §8).
+
+### Spacing scale (the ladder)
+Harmony spacing is a **4pt-based ladder**; every gap, pad, and margin snaps to a step.
+
+| Token | px | Typical use |
+| --- | --- | --- |
+| `space-none` | 0 | flush edges, reset |
+| `space-xs` | 4 | icon↔label, tight title lines |
+| `space-sm` | 8 | label→value, chip inset-y |
+| `space-md` | 16 | default element gap, card body |
+| `space-lg` | 24 | container gutter, related-item gap |
+| `space-xl` | 32 | card padding, group gap |
+| `space-2xl` | 48 | column inner pad, body-block gap |
+| `space-3xl` | 64 | section pad (mobile), large group gap |
+| `space-4xl` | 72 | section pad (desktop standard) |
+| `space-5xl` | 96 | section pad (hero / feature / dark) |
+
+- **Do** move in single steps; avoid arbitrary in-between values (`py-[52px]`).
+- **Don't** introduce a new raw value — add a step to `tokens/semantic.json` first.
+
 ### Grid & breakpoints
-- 12-col grid, max-width 1440px, gutters 24/16px.
-- Breakpoints: 640 / 768 / 1024 / 1280 / 1536.
-- Mobile-first approach with progressive enhancement.
+- 12-col grid, **max content width 1440px**, centred (`mx-auto`).
+- **Gutters (horizontal page padding):** `space-lg` (24) desktop, `space-md` (16) mobile.
+- Breakpoints: 640 / 768 / 1024 / 1280 / 1536; mobile-first, progressive enhancement.
+- Full-bleed/background sections span viewport width; their **inner** content still
+  respects the 1440px container and gutters.
+
+### Section rhythm (vertical)
+Sections are the primary unit of rhythm — spacing between them is what makes layouts
+feel "organised and calm".
+
+- **Standard editorial section:** `space-3xl` (64) mobile → `space-4xl` (72) desktop.
+- **Hero / feature / inverted (dark) section:** `space-5xl` (96) desktop, `space-3xl`
+  (64) mobile — extra breathing room to let big titles dominate.
+- **Section header → body gap:** `space-4xl` (72) for editorial two-column layouts.
+- **Adjacent blocks inside a section:** `space-2xl` (48) desktop → `space-lg` (24) mobile.
+- One consistent vertical value per section top/bottom — never asymmetric by accident.
+
+### Editorial two-column pattern
+The portfolio's signature layout (numbered index + body):
+
+- **Index / number column:** fixed ~`w-[69px]`, top-aligned, oversized Clash numeral.
+- **Body column:** `max-w-[1170px]`, inner pad `space-none` mobile → `space-2xl`+ (≥48,
+  up to 80) desktop; content is left-aligned and calm.
+- Columns are pushed apart with space-between, not a fixed gap.
+
+### Component spacing
+- **Cards / media tiles:** inner padding `space-xl` (32); metadata/footer bar
+  `space-xl` inset-x, `space-lg` (24) inset-y.
+- **Dense list items / service cards:** `space-2xl` (48) inset-x, `space-lg` (24)
+  inset-y; title→description gap `space-sm` (8).
+- **Card grids:** generous, asymmetric-friendly gutters; columns may offset vertically
+  for an editorial stagger, but gaps still snap to the ladder.
+- **Dividers:** `border-subtle`, never raw gray; separate groups, don't box them in.
+
+### Element spacing
+- **Label → value / stacked meta:** `space-xs` (4) to `space-sm` (8).
+- **Inline chips / tags:** `space-md` (16) inset-x, `space-sm` (8) inset-y, `radius-full`.
+- **Buttons (CTA):** `space-lg` (24) inset-x, `space-md`–`space-sm` inset-y.
+- **Tight display lines (multi-line titles):** `space-xs` (4) mobile → `space-sm` (8) up.
+- **Body paragraph stacks:** `space-lg` (24) mobile → `space-2xl` (48) desktop.
 
 ### Page chrome
 - Consistent top-left wordmark, page number, section eyebrow; single accent mark in footer.
 - Dividers use `border-subtle`, never raw gray.
 
 ### Density per surface
-- **Website/editorial:** generous, media-rich, big titles.
-- **Dashboard/utility:** compact, data-dense, tighter padding/radius.
-- **Mobile app:** touch-first, 44pt targets, condensed spacing.
+- **Website/editorial:** generous, media-rich, big titles — favour `space-4xl`/`space-5xl`
+  sections and `space-2xl` body gaps.
+- **Dashboard/utility:** compact, data-dense — step section padding down to
+  `space-2xl`/`space-3xl` and element gaps to `space-sm`/`space-md`.
+- **Mobile app:** touch-first, ≥44pt targets — condense sections to `space-3xl`, keep
+  element gaps at `space-md` minimum for tap comfort.
 
 ---
 
@@ -159,8 +274,9 @@ Lucide, 1.5 stroke, 24x24 default / 20x20 compact
 - **States:** default → hover → focus → active → disabled → loading → error.
 - **Motion:** default easing `cubic-bezier(0.4,0,0.2,1)`; ~200ms micro, ~400ms reveal;
   respect `prefers-reduced-motion`.
-- **Feedback:** error = red text + border + icon + message (never color alone);
-  success = green surface + icon; loading = skeleton/spinner, non-blocking.
+- **Status feedback:** negative = `content.negative` text + `border.negative` + icon +
+  message (never colour alone); positive = `status-surface.positive` + icon;
+  loading = skeleton/spinner, non-blocking. Roles: positive/negative/notice/info.
 
 ---
 
@@ -198,7 +314,7 @@ source above and run `docs-sync` — never hardcode it here or in components.
 AI tools tend to *add*. These constraints protect the product from drift:
 
 - **Don't** invent hex/px/rem values or hardcode them in components — use tokens.
-- **Don't** use feedback colours (green/red/blue/yellow) decoratively.
+- **Don't** use status colours (green/red/blue/yellow) decoratively — status roles only.
 - **Don't** mix more than one display family, or more than two weights, per screen.
 - **Don't** create a new component variant when an existing one fits — extend, don't fork.
 - **Don't** use pure black (`#000`) in dark mode; use neutral primitives.
@@ -206,6 +322,9 @@ AI tools tend to *add*. These constraints protect the product from drift:
 - **Don't** all-caps body text, centre paragraphs > 2 lines, or leave lorem ipsum in mocks.
 - **Don't** auto-play distracting motion or omit a reduced-motion fallback.
 - **Don't** treat `/inspirations/` imagery as a token or value source.
+- **Don't** hardcode font family strings ("Roboto", "Clash Grotesk", "Space Grotesk") — always bind to the semantic token (`font/body`, `font/display`, `font/sans`).
+- **Don't** leave `fontWeight` unbound — every text node must reference a `font-weight/*` variable.
+- **Don't** leave any typography property (size, line-height, letter-spacing) as a raw number — bind to the corresponding semantic typography variable.
 
 ---
 
@@ -231,10 +350,36 @@ the sync procedure so the rest of the system stays truthful.
 | Brand voice / audience / scope | `AGENTS.md` §0.1, `SKILL.md` §2–3 | manual edit |
 | Any principle affecting agents | `.devin/rules/harmony-core.md` (brand invariants) | manual edit |
 
-**Always run `.devin/workflows/design-language-sync.md` after editing this file.**
+**Always run `.devin/skills/design-language-sync/SKILL.md` after editing this file.**
 
 ## 12. Version & changelog
+- v0.7.0 — full agentic system audit: migrated `.devin/workflows/` to
+  `.devin/skills/*/SKILL.md` across all docs, cleaned 12 outlier Unit tokens from
+  `primitives.json`, added `radius.2xl`/`radius.3xl` to semantic scale, fully
+  regenerated `theme.css` with correct `status` naming (removed legacy `feedback`),
+  added missing semantic token groups (surface, overlay, interaction states,
+  content status, border status), fixed naming convention examples in
+  `.devin/rules/tokens.md` and `AGENTS.md`. SKILL.md bumped to v0.3.0.
+- v0.6.0 — added §4 "Font family semantic tokens & binding rules" subsection
+  documenting mandatory `font/body` (Roboto), `font/display` (Clash Grotesk),
+  `font/sans` (Space Grotesk) bindings, font-weight token table, and complete
+  text-node binding checklist. Added 3 new "Do not do" constraints for unbound
+  font properties.
+- v0.5.0 — split Figma typography variables into `Typography` and `Unit` primitive
+  collections (`family`, `weight`, `line-height`, `letter-spacing`, and `size`) and
+  re-aliased the entire `Semantic: Typography` collection to those primitives.
+  Recorded the new primitives in `tokens/primitives.json` and updated the Figma
+  collection map in `docs/FIGMA-CONFIG.md`.
+- v0.4.0 — expanded semantic colour system: added interaction states
+  (hover/pressed/selected/disabled/focus) across background/content/border, new
+  `surface` and `overlay` groups, and status content/border roles. Renamed
+  `feedback.*` → `status.{positive|negative|notice|info}` and `feedbackSurface` →
+  `statusSurface` across `tokens/semantic.json`, `components.json`, Figma `Semantic`
+  (23→55 vars), and `theme.css`.
+- v0.3.0 — expanded §5 Layout & spacing with portfolio-derived rules for sections,
+  components, and elements (spacing ladder, section rhythm, editorial two-column,
+  component/element spacing, per-surface density). Added `space-4xl` (72px) and
+  `space-5xl` (96px) steps → `tokens/semantic.json`, Figma `Scale`, and `theme.css`.
 - v0.2.0 — restructured to the community DESIGN.md convention (added §7 Accessibility,
   §8 Design tokens reference, §9 Do not do); no value duplication.
 - v0.1.0 — initial foundation (palette, typography, spacing, principles, scope).
-- _(log every design-language decision change here.)_

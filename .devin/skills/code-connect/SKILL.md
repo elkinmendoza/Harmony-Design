@@ -1,4 +1,5 @@
 ---
+name: code-connect
 description: Map a Figma component set to its Vue/React/RN source with Code Connect
 ---
 
