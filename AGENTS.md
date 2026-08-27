@@ -270,7 +270,8 @@ Harmony/
 │       ├── component-build/SKILL.md
 │       ├── code-connect/SKILL.md
 │       ├── design-language-sync/SKILL.md
-│       └── docs-sync/SKILL.md
+│       ├── docs-sync/SKILL.md
+│       └── template-build/SKILL.md
 ├── tokens/
 │   ├── primitives.json       ← exported Figma primitives (immutable source)
 │   ├── semantic.json         ← intent aliases (authored here)
@@ -281,12 +282,18 @@ Harmony/
 ├── components/               ← framework-agnostic specs + Code Connect
 │   ├── specs/                ← component spec docs (per-component .md)
 │   └── README.md             ← component library architecture + Figma mapping
+├── assets/
+│   ├── backgrounds/          ← liquid chrome hero textures (brand visual identity)
+│   ├── brand/                ← Harmony logo marks
+│   └── presentations/        ← Figma cover exports and hero screenshots
 ├── prompts/                  ← Figma Make prompt templates (e.g. agency template)
 ├── docs/
 │   ├── DESIGN.md             ← design-language foundation (brand, scope, look & feel)
 │   ├── WORKFLOWS.md          ← human prompt templates for running skills
 │   └── FIGMA-CONFIG.md       ← canonical Figma structure + Code Connect
-└── packages/                 ← (future) monorepo: web (Next.js) + mobile (Expo/RN)
+└── packages/                 ← monorepo: web (Next.js) + mobile (Expo/RN)
+    ├── web/                  ← Next.js 15 + Tailwind v4 + Harmony foundations
+    └── mobile/               ← Expo 53 + React Native 0.79
 ```
 
 The agent maintains this structure; it must not scatter tokens or duplicate
