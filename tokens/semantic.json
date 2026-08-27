@@ -1,38 +1,74 @@
 {
-  "$description": "Harmony semantic tokens — intent-based aliases that reference primitive families. Components consume these, never primitives. Light and dark are two sets over the same primitives.",
+  "$description": "Harmony semantic tokens — intent-based aliases that reference primitive families. Components consume these, never primitives. Light and dark are two sets over the same primitives. Interaction-state suffixes (hover/pressed/selected/disabled/focus) express component states; status roles use positive/negative/notice/info. Overlay tokens carry an optional `alpha` (0–1) and are emitted as color-mix() over the referenced primitive.",
   "color": {
     "background": {
-      "primary":   { "light": "neutral.50",  "dark": "neutral.950" },
-      "secondary": { "light": "neutral.100", "dark": "neutral.900" },
-      "tertiary":  { "light": "neutral.200", "dark": "neutral.800" },
-      "inverse":   { "light": "neutral.900", "dark": "neutral.50" },
-      "brand":     { "light": "brand.500",   "dark": "brand.500" }
+      "primary":        { "light": "neutral.50",  "dark": "neutral.950" },
+      "secondary":      { "light": "neutral.100", "dark": "neutral.900" },
+      "tertiary":       { "light": "neutral.200", "dark": "neutral.800" },
+      "inverse":        { "light": "neutral.900", "dark": "neutral.50" },
+      "hover":          { "light": "neutral.100", "dark": "neutral.900" },
+      "pressed":        { "light": "neutral.200", "dark": "neutral.800" },
+      "selected":       { "light": "brand.50",    "dark": "brand.900" },
+      "disabled":       { "light": "neutral.100", "dark": "neutral.900" },
+      "brand":          { "light": "brand.500",   "dark": "brand.500" },
+      "brand-hover":    { "light": "brand.600",   "dark": "brand.400" },
+      "brand-pressed":  { "light": "brand.700",   "dark": "brand.300" },
+      "brand-disabled": { "light": "neutral.200", "dark": "neutral.800" }
+    },
+    "surface": {
+      "default": { "light": "neutral.50",  "dark": "neutral.900" },
+      "raised":  { "light": "neutral.50",  "dark": "neutral.800" },
+      "sunken":  { "light": "neutral.100", "dark": "neutral.950" },
+      "overlay": { "light": "neutral.50",  "dark": "neutral.800" }
+    },
+    "overlay": {
+      "scrim":    { "light": "neutral.950", "dark": "neutral.950", "alpha": 0.6 },
+      "backdrop": { "light": "neutral.950", "dark": "neutral.950", "alpha": 0.4 },
+      "hover":    { "light": "neutral.950", "dark": "neutral.50",  "alpha": 0.08 },
+      "pressed":  { "light": "neutral.950", "dark": "neutral.50",  "alpha": 0.12 }
     },
     "content": {
-      "primary":   { "light": "neutral.900", "dark": "neutral.50" },
-      "secondary": { "light": "neutral.600", "dark": "neutral.300" },
-      "tertiary":  { "light": "neutral.500", "dark": "neutral.400" },
-      "inverse":   { "light": "neutral.50",  "dark": "neutral.900" },
-      "brand":     { "light": "brand.600",   "dark": "brand.400" },
-      "onBrand":   { "light": "neutral.950", "dark": "neutral.950" }
+      "primary":     { "light": "neutral.900", "dark": "neutral.50" },
+      "secondary":   { "light": "neutral.600", "dark": "neutral.300" },
+      "tertiary":    { "light": "neutral.500", "dark": "neutral.400" },
+      "inverse":     { "light": "neutral.50",  "dark": "neutral.900" },
+      "disabled":    { "light": "neutral.400", "dark": "neutral.600" },
+      "brand":       { "light": "brand.600",   "dark": "brand.400" },
+      "onBrand":     { "light": "neutral.950", "dark": "neutral.950" },
+      "positive":    { "light": "green.600",   "dark": "green.400" },
+      "negative":    { "light": "red.600",     "dark": "red.400" },
+      "notice":      { "light": "yellow.700",  "dark": "yellow.400" },
+      "info":        { "light": "blue.600",    "dark": "blue.400" },
+      "onPositive":  { "light": "neutral.50",  "dark": "neutral.950" },
+      "onNegative":  { "light": "neutral.50",  "dark": "neutral.950" },
+      "onNotice":    { "light": "neutral.950", "dark": "neutral.950" },
+      "onInfo":      { "light": "neutral.50",  "dark": "neutral.950" }
     },
     "border": {
       "subtle":   { "light": "neutral.200", "dark": "neutral.800" },
       "default":  { "light": "neutral.300", "dark": "neutral.700" },
       "strong":   { "light": "neutral.400", "dark": "neutral.600" },
-      "brand":    { "light": "brand.500",   "dark": "brand.500" }
+      "hover":    { "light": "neutral.400", "dark": "neutral.600" },
+      "focus":    { "light": "brand.500",   "dark": "brand.400" },
+      "selected": { "light": "brand.500",   "dark": "brand.400" },
+      "disabled": { "light": "neutral.200", "dark": "neutral.800" },
+      "brand":    { "light": "brand.500",   "dark": "brand.500" },
+      "positive": { "light": "green.500",   "dark": "green.400" },
+      "negative": { "light": "red.500",     "dark": "red.400" },
+      "notice":   { "light": "yellow.500",  "dark": "yellow.400" },
+      "info":     { "light": "blue.500",    "dark": "blue.400" }
     },
-    "feedback": {
-      "success": { "light": "green.500",  "dark": "green.400" },
-      "error":   { "light": "red.500",    "dark": "red.400" },
-      "info":    { "light": "blue.500",   "dark": "blue.400" },
-      "warning": { "light": "yellow.500", "dark": "yellow.400" }
+    "status": {
+      "positive": { "light": "green.500",  "dark": "green.400" },
+      "negative": { "light": "red.500",    "dark": "red.400" },
+      "notice":   { "light": "yellow.500", "dark": "yellow.400" },
+      "info":     { "light": "blue.500",   "dark": "blue.400" }
     },
-    "feedbackSurface": {
-      "success": { "light": "green.50",  "dark": "green.900" },
-      "error":   { "light": "red.50",    "dark": "red.900" },
-      "info":    { "light": "blue.50",   "dark": "blue.900" },
-      "warning": { "light": "yellow.50", "dark": "yellow.900" }
+    "statusSurface": {
+      "positive": { "light": "green.50",  "dark": "green.900" },
+      "negative": { "light": "red.50",    "dark": "red.900" },
+      "notice":   { "light": "yellow.50", "dark": "yellow.900" },
+      "info":     { "light": "blue.50",   "dark": "blue.900" }
     }
   },
   "font": {
@@ -74,7 +110,9 @@
     "lg":   "1.5rem",
     "xl":   "2rem",
     "2xl":  "3rem",
-    "3xl":  "4rem"
+    "3xl":  "4rem",
+    "4xl":  "4.5rem",
+    "5xl":  "6rem"
   },
   "radius": {
     "none": "0rem",
@@ -82,6 +120,8 @@
     "md":   "0.5rem",
     "lg":   "0.75rem",
     "xl":   "1rem",
+    "2xl":  "1.5rem",
+    "3xl":  "3rem",
     "full": "9999px"
   },
   "shadow": {

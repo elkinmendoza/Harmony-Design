@@ -11,10 +11,10 @@
 1. `CONTEXT.md` — routing table + source-of-truth precedence.
 2. `docs/DESIGN.md` — the design-language foundation (brand, style guide, scope,
    business logic, look & feel). Upstream of tokens/rules; sets *why* things look
-   the way they do. Changes here propagate via `.devin/workflows/design-language-sync.md`.
+   the way they do. Changes here propagate via `.devin/skills/design-language-sync/SKILL.md`.
 3. `.devin/rules/harmony-core.md` — always-on constraints (auto-applied by Devin).
 4. The domain rule for your task: `tokens.md` · `figma-mcp.md` · `dependencies.md` · `accessibility.md`.
-5. The matching `.devin/workflows/*.md` procedure.
+5. The matching `.devin/skills/*/SKILL.md` procedure.
 6. `docs/FIGMA-CONFIG.md` for anything touching Figma structure or Code Connect.
 
 ---
@@ -60,6 +60,8 @@ on products inspired by the EM Mendoza portfolio (`2026-ultimate-portfolio`).
    scan; usability is never sacrificed for style.
 4. **Stylish by default** — every component looks considered and premium; the
    baseline aesthetic is "clean, innovative, self-intuitive" with editorial flair.
+5. **Consistent micro-interactions** — every component has consistent
+   transitions, states, and feedback i needed. More importangly should enhance the overal user experience and facilitating easiness and transaprency in all possible ways.
 
 ### Typography reference (from the EM Mendoza portfolio)
 
@@ -89,6 +91,10 @@ an afterthought:
   captions, reduced-motion fallback to a static poster.
 - **Media hero** — big title + video/image backdrop with readable overlay.
 - **Gallery / carousel** — image + video mixed, keyboard + touch accessible.
+- Media transitions — smooth, accessible, and performant.
+- Lazy loading — optimal performance and user experience.
+- Blur effects — for visual depth and focus.
+- Accessibility — all media components must be accessible and user-friendly.
 
 All media components must respect `prefers-reduced-motion` and ship an accessible
 poster/alt fallback.
@@ -112,7 +118,7 @@ missing, stop and request it, or add it to the primitive/semantic layer first.
 ## 2. Canonical Color Palette (4–6 core families)
 
 Harmony's palette is **6 primitive families**, each on a 50–950 scale, sourced
-from `harmonyprimitiveColours.json`. The `500` step is the family anchor.
+from `tokens/primitives.json`. The `500` step is the family anchor.
 
 | Family | Role | Anchor (500) |
 | --- | --- | --- |
@@ -138,7 +144,7 @@ Figma Variables
       │  (alias)
       ▼
 2. SEMANTIC     color.background.primary, color.content.primary,
-                color.border.subtle, color.feedback.error   (intent)
+                color.border.subtle, color.status.negative   (intent)
       │  (scope)
       ▼
 3. COMPONENT    button.primary.bg, card.shadow, input.border  (component-local)
@@ -159,10 +165,10 @@ Rules:
 | Radius | `--radius-{name}` | `--radius-lg` |
 | Shadow | `--shadow-{name}` | `--shadow-card` |
 | Font family | `--font-{name}` | `--font-sans` |
-| Text size | `--text-{variant}-size` | `--text-l-regular-size` |
-| Line height | `--text-{variant}-line-height` | `--text-l-regular-line-height` |
-| Letter spacing | `--text-{variant}-letter-spacing` | `--text-l-regular-letter-spacing` |
-| Heading | `--heading-{variant}-{prop}` | `--heading-9xl-bold-size` |
+| Text size | `--text-{variant}-size` | `--text-xl-size` |
+| Line height | `--text-{variant}-line-height` | `--text-xl-line-height` |
+| Letter spacing | `--text-{variant}-letter-spacing` | `--text-xl-letter-spacing` |
+| Heading | `--heading-{variant}-{prop}` | `--heading-9xl-size` |
 | Component | `--{component}-{property}` | `--button-primary-bg` |
 
 ---
@@ -196,14 +202,19 @@ Skeleton the agent must follow:
   --color-brand-950: #241500;
   /* ...neutral, green, red, blue, yellow (50–950) ... */
 
-  /* --- semantic (light) --- */
+  /* --- semantic (light) — full set includes background, surface,
+       overlay, content, border, status, status-surface + interaction
+       states (hover/pressed/selected/disabled/focus) --- */
   --color-background-primary: var(--color-neutral-50);
   --color-content-primary:    var(--color-neutral-900);
   --color-border-subtle:      var(--color-neutral-200);
-  --color-feedback-error:     var(--color-red-500);
-  --color-feedback-success:   var(--color-green-500);
-  --color-feedback-info:      var(--color-blue-500);
-  --color-feedback-warning:   var(--color-yellow-500);
+  --color-surface-default:    var(--color-neutral-50);
+  --color-overlay-scrim:      color-mix(in srgb, var(--color-neutral-950) 60%, transparent);
+  --color-status-negative:    var(--color-red-500);
+  --color-status-positive:    var(--color-green-500);
+  --color-status-info:        var(--color-blue-500);
+  --color-status-notice:      var(--color-yellow-500);
+  /* ...see foundations/theme.css for the complete set... */
 
   /* --- spacing / radius / typography scales --- */
   --space-xs: 0.25rem; --space-sm: 0.5rem; --space-md: 1rem;
@@ -254,12 +265,13 @@ Harmony/
 │   │   ├── figma-mcp.md      ← Figma read/write rules
 │   │   ├── dependencies.md   ← stack/version rules
 │   │   └── accessibility.md  ← a11y requirements
-│   └── workflows/            ← repeatable procedures
-│       ├── design-to-token.md
-│       ├── component-build.md
-│       ├── code-connect.md
-│       ├── design-language-sync.md
-│       └── docs-sync.md
+│   └── skills/               ← repeatable procedures (skill-based)
+│       ├── design-to-token/SKILL.md
+│       ├── component-build/SKILL.md
+│       ├── code-connect/SKILL.md
+│       ├── design-language-sync/SKILL.md
+│       ├── docs-sync/SKILL.md
+│       └── template-build/SKILL.md
 ├── tokens/
 │   ├── primitives.json       ← exported Figma primitives (immutable source)
 │   ├── semantic.json         ← intent aliases (authored here)
@@ -268,10 +280,20 @@ Harmony/
 │   ├── theme.css             ← GENERATED Tailwind v4 @theme
 │   └── reset.css             ← base/reset layer
 ├── components/               ← framework-agnostic specs + Code Connect
-└── docs/
-    ├── DESIGN.md             ← design-language foundation (brand, scope, look & feel)
-    ├── README.md             ← usage, adoption, contribution
-    └── FIGMA-CONFIG.md       ← canonical Figma structure + Code Connect
+│   ├── specs/                ← component spec docs (per-component .md)
+│   └── README.md             ← component library architecture + Figma mapping
+├── assets/
+│   ├── backgrounds/          ← liquid chrome hero textures (brand visual identity)
+│   ├── brand/                ← Harmony logo marks
+│   └── presentations/        ← Figma cover exports and hero screenshots
+├── prompts/                  ← Figma Make prompt templates (e.g. agency template)
+├── docs/
+│   ├── DESIGN.md             ← design-language foundation (brand, scope, look & feel)
+│   ├── WORKFLOWS.md          ← human prompt templates for running skills
+│   └── FIGMA-CONFIG.md       ← canonical Figma structure + Code Connect
+└── packages/                 ← monorepo: web (Next.js) + mobile (Expo/RN)
+    ├── web/                  ← Next.js 15 + Tailwind v4 + Harmony foundations
+    └── mobile/               ← Expo 53 + React Native 0.79
 ```
 
 The agent maintains this structure; it must not scatter tokens or duplicate
@@ -289,6 +311,8 @@ foundations elsewhere.
 - Identical prop shape across Vue / React / React Native; only implementation
   differs (web = CSS vars + Tailwind; RN = token objects / StyleSheet).
 - Every component gets a description documenting purpose, props, and usage.
+- Micro-interactions: transitions, hover/focus states, loading spinners, error
+  feedback are handled with GSAP animations.
 
 ---
 

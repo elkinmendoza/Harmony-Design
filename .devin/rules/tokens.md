@@ -18,20 +18,27 @@
 | Radius | `--radius-{name}` | `--radius-lg` |
 | Shadow | `--shadow-{name}` | `--shadow-card` |
 | Font family | `--font-{name}` | `--font-display` |
-| Text size | `--text-{variant}-size` | `--text-l-regular-size` |
-| Line height | `--text-{variant}-line-height` | `--text-l-regular-line-height` |
-| Letter spacing | `--text-{variant}-letter-spacing` | `--text-l-regular-letter-spacing` |
-| Heading | `--heading-{variant}-{prop}` | `--heading-9xl-bold-size` |
+| Text size | `--text-{variant}-size` | `--text-xl-size` |
+| Line height | `--text-{variant}-line-height` | `--text-xl-line-height` |
+| Letter spacing | `--text-{variant}-letter-spacing` | `--text-xl-letter-spacing` |
+| Heading | `--heading-{variant}-{prop}` | `--heading-9xl-size` |
 | Component | `--{component}-{property}` | `--button-primary-bg` |
 
 ## Rules
 - Primitives: 6 families (Brand, Neutral, Green, Red, Blue, Yellow), scale 50–950,
   `500` is the family anchor. Do not add families or alter hex in code.
-- Semantic tokens alias primitives via intent (`background`, `content`, `border`,
-  `feedback.{error|success|info|warning}`). Light + dark are two semantic sets.
+- Semantic tokens alias primitives via intent (`background`, `surface`, `overlay`,
+  `content`, `border`, `status.{positive|negative|notice|info}`,
+  `statusSurface.*`). Light + dark are two semantic sets.
+- Interaction states are semantic suffixes: `hover` / `pressed` / `selected` /
+  `disabled` / `focus` (e.g. `background.hover`, `border.focus`, `content.disabled`).
+- `overlay.*` tokens carry an `alpha` (0–1) and emit as `color-mix()` over a neutral
+  primitive — the one place a semantic token is not a plain alias.
+- Status naming is `positive` (green) / `negative` (red) / `notice` (yellow) /
+  `info` (blue). Do **not** reintroduce `feedback.*` / `success` / `error` / `warning`.
 - Component tokens alias semantic tokens only — never primitives directly.
 - Adding a token → add at the correct layer, then regenerate `theme.css`
-  (see `.devin/workflows/docs-sync.md`), never hand-edit `theme.css`.
+  (see `.devin/skills/docs-sync/SKILL.md`), never hand-edit `theme.css`.
 - Every token must resolve to a usable Tailwind v4 utility.
 
 ## Forbidden

@@ -1,9 +1,124 @@
+<p align="center">
+  <img src="assets/presentations/harmony-hero-central-dominance.png" alt="Harmony Design System — Introducing a new design system" width="100%" />
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/v1.0.0-ff9500?style=flat-square&label=Harmony&labelColor=161512" alt="Harmony v1.0.0" />
+  <img src="https://img.shields.io/badge/Figma_Driven-161512?style=flat-square&logo=figma&logoColor=ff9500" alt="Figma Driven" />
+  <img src="https://img.shields.io/badge/Tailwind_v4-161512?style=flat-square&logo=tailwindcss&logoColor=ff9500" alt="Tailwind v4" />
+  <img src="https://img.shields.io/badge/React_%7C_Vue_%7C_RN-161512?style=flat-square&logo=react&logoColor=ff9500" alt="React | Vue | React Native" />
+</p>
+
 # Harmony Design System
 
-**Harmony** is a centralised, Figma-driven design system that generates a
-Tailwind CSS v4 foundation and a cross-framework component library
-(Vue.js / React.js / React Native). Built for teams that lead with a strong
-visual voice: big editorial titles, organised layouts, and effortless readability.
+A unified design system built to bridge design and development — providing
+consistent tokens, components, and layouts across web, mobile, and dashboard
+products. Big editorial titles, organised layouts, and effortless readability.
+
+<p align="center">
+  <a href="#components"><strong>Components</strong></a>&nbsp;&nbsp;&nbsp;
+  <a href="#3-token-flow--the-one-rule"><strong>Tokens</strong></a>&nbsp;&nbsp;&nbsp;
+  <a href="#9-figma-mcp-integration"><strong>Figma</strong></a>&nbsp;&nbsp;&nbsp;
+  <a href="#11-typography-scale"><strong>Typography</strong></a>&nbsp;&nbsp;&nbsp;
+  <a href="#12-colour-palette"><strong>Colour</strong></a>&nbsp;&nbsp;&nbsp;
+  <a href="#13-dark-mode"><strong>Dark Mode</strong></a>
+</p>
+
+---
+
+### Components
+
+<table>
+<tr>
+<td>
+
+**UI**&nbsp;&nbsp;
+[![Button](https://img.shields.io/badge/Button-f8f7f5?style=flat-square&labelColor=ff9500)](components/specs/)
+[![Link](https://img.shields.io/badge/Link-f8f7f5?style=flat-square&labelColor=ff9500)](components/specs/)
+[![Icon](https://img.shields.io/badge/Icon-f8f7f5?style=flat-square&labelColor=ff9500)](components/specs/)
+[![Badge](https://img.shields.io/badge/Badge-f8f7f5?style=flat-square&labelColor=ff9500)](components/specs/)
+[![Input](https://img.shields.io/badge/Input-f8f7f5?style=flat-square&labelColor=ff9500)](components/specs/)
+[![Modal](https://img.shields.io/badge/Modal-f8f7f5?style=flat-square&labelColor=ff9500)](components/specs/)
+[![Tooltip](https://img.shields.io/badge/Tooltip-f8f7f5?style=flat-square&labelColor=ff9500)](components/specs/)
+
+</td>
+</tr>
+<tr>
+<td>
+
+**Layout**&nbsp;&nbsp;
+[![Container](https://img.shields.io/badge/Container-f8f7f5?style=flat-square&labelColor=787470)](components/specs/)
+[![Section](https://img.shields.io/badge/Section-f8f7f5?style=flat-square&labelColor=787470)](components/specs/)
+[![Grid](https://img.shields.io/badge/Grid-f8f7f5?style=flat-square&labelColor=787470)](components/specs/)
+[![Stack](https://img.shields.io/badge/Stack-f8f7f5?style=flat-square&labelColor=787470)](components/specs/)
+[![Divider](https://img.shields.io/badge/Divider-f8f7f5?style=flat-square&labelColor=787470)](components/specs/)
+
+</td>
+</tr>
+<tr>
+<td>
+
+**Navigation**&nbsp;&nbsp;
+[![Navbar](https://img.shields.io/badge/Navbar-f8f7f5?style=flat-square&labelColor=161512)](components/specs/navigation.md)
+[![Menu](https://img.shields.io/badge/Menu-f8f7f5?style=flat-square&labelColor=161512)](components/specs/navigation.md)
+[![MobileMenu](https://img.shields.io/badge/MobileMenu-f8f7f5?style=flat-square&labelColor=161512)](components/specs/navigation.md)
+[![Breadcrumbs](https://img.shields.io/badge/Breadcrumbs-f8f7f5?style=flat-square&labelColor=161512)](components/specs/)
+[![Footer](https://img.shields.io/badge/Footer-f8f7f5?style=flat-square&labelColor=161512)](components/specs/footer.md)
+
+</td>
+</tr>
+<tr>
+<td>
+
+**Content**&nbsp;&nbsp;
+[![Hero](https://img.shields.io/badge/Hero-f8f7f5?style=flat-square&labelColor=cc7700)](components/specs/hero.md)
+[![Card](https://img.shields.io/badge/Card-f8f7f5?style=flat-square&labelColor=cc7700)](components/specs/service-card.md)
+[![ProjectCard](https://img.shields.io/badge/ProjectCard-f8f7f5?style=flat-square&labelColor=cc7700)](components/specs/project-grid.md)
+[![ArticleCard](https://img.shields.io/badge/ArticleCard-f8f7f5?style=flat-square&labelColor=cc7700)](components/specs/article.md)
+[![Bio](https://img.shields.io/badge/Bio-f8f7f5?style=flat-square&labelColor=cc7700)](components/specs/bio-section.md)
+[![Testimonial](https://img.shields.io/badge/Testimonial-f8f7f5?style=flat-square&labelColor=cc7700)](components/specs/)
+
+</td>
+</tr>
+<tr>
+<td>
+
+**Media**&nbsp;&nbsp;
+[![Image](https://img.shields.io/badge/Image-f8f7f5?style=flat-square&labelColor=2d6bf4)](components/specs/media.md)
+[![Video](https://img.shields.io/badge/Video-f8f7f5?style=flat-square&labelColor=2d6bf4)](components/specs/media.md)
+[![Gallery](https://img.shields.io/badge/Gallery-f8f7f5?style=flat-square&labelColor=2d6bf4)](components/specs/media.md)
+[![Carousel](https://img.shields.io/badge/Carousel-f8f7f5?style=flat-square&labelColor=2d6bf4)](components/specs/slider.md)
+[![Lightbox](https://img.shields.io/badge/Lightbox-f8f7f5?style=flat-square&labelColor=2d6bf4)](components/specs/media.md)
+
+</td>
+</tr>
+<tr>
+<td>
+
+**Interaction**&nbsp;&nbsp;
+[![Reveal](https://img.shields.io/badge/Reveal-f8f7f5?style=flat-square&labelColor=1a9e52)](components/specs/transitions.md)
+[![Parallax](https://img.shields.io/badge/Parallax-f8f7f5?style=flat-square&labelColor=1a9e52)](components/specs/transitions.md)
+[![Marquee](https://img.shields.io/badge/Marquee-f8f7f5?style=flat-square&labelColor=1a9e52)](components/specs/slider.md)
+[![Magnetic](https://img.shields.io/badge/Magnetic-f8f7f5?style=flat-square&labelColor=1a9e52)](components/specs/transitions.md)
+[![ScrollProgress](https://img.shields.io/badge/ScrollProgress-f8f7f5?style=flat-square&labelColor=1a9e52)](components/specs/transitions.md)
+
+</td>
+</tr>
+<tr>
+<td>
+
+**Forms**&nbsp;&nbsp;
+[![Form](https://img.shields.io/badge/Form-f8f7f5?style=flat-square&labelColor=e53e2a)](components/specs/)
+[![Input](https://img.shields.io/badge/Input-f8f7f5?style=flat-square&labelColor=e53e2a)](components/specs/)
+[![Textarea](https://img.shields.io/badge/Textarea-f8f7f5?style=flat-square&labelColor=e53e2a)](components/specs/)
+[![Select](https://img.shields.io/badge/Select-f8f7f5?style=flat-square&labelColor=e53e2a)](components/specs/)
+[![FileUpload](https://img.shields.io/badge/FileUpload-f8f7f5?style=flat-square&labelColor=e53e2a)](components/specs/)
+
+</td>
+</tr>
+</table>
+
+<br />
 
 > **Agents (Devin / Cascade):** load `CONTEXT.md` first every session. It is the
 > routing index that tells you which file to retrieve for which task.
@@ -61,14 +176,27 @@ Harmony/
 │   │   ├── figma-mcp.md
 │   │   ├── dependencies.md
 │   │   └── accessibility.md
-│   └── workflows/               ← step-by-step procedures (invoked via prompts)
-│       ├── design-language-sync.md
-│       ├── docs-sync.md
-│       ├── design-to-token.md
-│       ├── component-build.md
-│       └── code-connect.md
+│   └── skills/                  ← step-by-step procedures (skill-based)
+│       ├── design-language-sync/SKILL.md
+│       ├── docs-sync/SKILL.md
+│       ├── design-to-token/SKILL.md
+│       ├── component-build/SKILL.md
+│       └── code-connect/SKILL.md
 │
-└── components/                  ← framework-agnostic specs + Code Connect
+├── components/                  ← framework-agnostic specs + Code Connect
+│   ├── specs/                   ← component spec docs (per-component .md)
+│   └── README.md                ← component library architecture + Figma mapping
+│
+├── assets/
+│   ├── backgrounds/             ← liquid chrome hero textures (brand visual identity)
+│   ├── brand/                   ← Harmony logo marks
+│   └── presentations/           ← Figma cover exports and hero screenshots
+│
+├── prompts/                     ← Figma Make prompt templates (e.g. agency template)
+│
+└── packages/                    ← monorepo: web (Next.js) + mobile (Expo/RN)
+    ├── web/                     ← Next.js 15 + Tailwind v4 + Harmony foundations
+    └── mobile/                  ← Expo 53 + React Native 0.79
 ```
 
 **Figma file keys**
@@ -87,7 +215,7 @@ Harmony/
 | `docs/DESIGN.md` | What does Harmony look and feel like? (brand, typography, colour) |
 | `docs/WORKFLOWS.md` | What exact prompt do I paste to Cascade / Devin? |
 | `docs/FIGMA-CONFIG.md` | How is Figma structured? How does Code Connect work? |
-| `.devin/workflows/*.md` | Step-by-step agent procedures (invoked by prompts in WORKFLOWS.md) |
+| `.devin/skills/*/SKILL.md` | Step-by-step agent procedures (invoked by prompts in WORKFLOWS.md) |
 | `.devin/rules/*.md` | Hard constraints applied automatically to every agent session |
 
 ---
@@ -99,9 +227,9 @@ Harmony/
 ```
 Figma Variables
       ↓
-tokens/primitives.json     raw colour hex — owned by Figma, never invent
+tokens/primitives.json     raw colour, typography, and unit values — owned by Figma, never invent
       ↓
-tokens/semantic.json       intent aliases: background, content, border, feedback
+tokens/semantic.json       intent aliases: background, surface, overlay, content, border, status
       ↓
 tokens/components.json     component-scoped aliases — reference semantic only
       ↓
@@ -139,7 +267,7 @@ Use when you change a guideline, style rule, or anything in `docs/DESIGN.md`
 2. Paste to Cascade:
    ```
    I updated docs/DESIGN.md: [one-sentence summary].
-   Follow .devin/workflows/design-language-sync.md step by step.
+   Follow .devin/skills/design-language-sync/SKILL.md step by step.
    Do not edit theme.css without updating semantic.json first.
    ```
 3. Agent: translates rule → `tokens/semantic.json` → mirrors `foundations/theme.css` → updates any docs tables.
@@ -162,7 +290,7 @@ No `docs/DESIGN.md` edit is needed unless it displays the old value in a table.
    ```
    I changed tokens/semantic.json: [one-sentence summary, e.g.
    "heading.9xl line-height changed from 8.875rem to 9rem"].
-   Follow .devin/workflows/docs-sync.md and regenerate foundations/theme.css.
+   Follow .devin/skills/docs-sync/SKILL.md and regenerate foundations/theme.css.
    ```
 3. Agent: mirrors the new value into `theme.css`, updates any docs tables showing the old value.
 
@@ -182,7 +310,7 @@ Use when you have exported an updated `Colour` variable collection from Figma.
 2. Paste to Cascade:
    ```
    I exported updated primitives from Figma.
-   Follow .devin/workflows/design-to-token.md. If any value is missing from
+   Follow .devin/skills/design-to-token/SKILL.md. If any value is missing from
    tokens/primitives.json, stop and ask — do not invent hex values.
    Then update semantic aliases and regenerate theme.css.
    ```
@@ -206,19 +334,19 @@ Use when you have exported an updated `Colour` variable collection from Figma.
 
 2. **Add component tokens** if the component needs scoped values:
    - Edit `tokens/components.json` — alias semantic tokens only, never primitives.
-   - Prompt: *"I added component tokens for [Name]. Follow `.devin/workflows/docs-sync.md`."*
+   - Prompt: *"I added component tokens for [Name]. Follow `.devin/skills/docs-sync/SKILL.md`."*
 
 3. **Build in code:**
    ```
    Build the [Name] component for [web / mobile / dashboard].
-   Follow .devin/workflows/component-build.md.
+   Follow .devin/skills/component-build/SKILL.md.
    ```
 
 4. **Set up Code Connect:**
    ```
    Create Code Connect for [Component].
    Figma file key: rna1ko0KAMxJygWQiWQ9KT, node id: [id].
-   Follow .devin/workflows/code-connect.md.
+   Follow .devin/skills/code-connect/SKILL.md.
    ```
 
 **Good practices:**
@@ -257,7 +385,7 @@ design context directly from the Figma file — no manual copy-paste.
    ```
    Pull variable definitions from this Figma node: [paste URL].
    Reconcile any new/changed values against tokens/primitives.json and
-   tokens/semantic.json. Follow .devin/workflows/design-to-token.md.
+   tokens/semantic.json. Follow .devin/skills/design-to-token/SKILL.md.
    ```
 
 ### Sync contract (Figma ↔ code)
@@ -339,7 +467,9 @@ Big, editorial titles are the hero of Harmony. Tokenised as
 | Yellow | Warning | `#f5c518` |
 
 Semantic roles: `--color-background-primary`, `--color-content-primary`,
-`--color-border-subtle`, `--color-feedback-error`, etc.
+`--color-border-subtle`, `--color-status-negative`, `--color-surface-raised`,
+`--color-overlay-scrim`, plus interaction states (`--color-background-hover`,
+`--color-border-focus`), etc.
 
 ---
 

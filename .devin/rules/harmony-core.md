@@ -12,7 +12,7 @@
 
 ## Foundation change trigger
 - Any edit to `docs/DESIGN.md` MUST be propagated via
-  `.devin/workflows/design-language-sync.md`. Downstream files (tokens, rules,
+  `.devin/skills/design-language-sync/SKILL.md`. Downstream files (tokens, rules,
   Figma, SKILL.md, AGENTS.md §0.1) do not update themselves.
 
 ## Non-negotiables

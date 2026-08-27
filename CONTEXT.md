@@ -24,13 +24,14 @@
 | **Onboarding / "what is Harmony"** | `CONTEXT.md`, `README.md`, `docs/DESIGN.md`, `AGENTS.md` §0–3 | token JSON, theme.css |
 | **"How do I run / invoke a workflow?"** | `docs/WORKFLOWS.md` | everything else |
 | **Brand / look-and-feel / scope decision** | `docs/DESIGN.md`, `SKILL.md` §2–4, `AGENTS.md` §0.1 | token JSON, components/ |
-| **Change to `docs/DESIGN.md` (propagate it)** | `docs/DESIGN.md`, `.devin/workflows/design-language-sync.md` | — |
-| **Pull design spec from Figma** | `AGENTS.md` §5, `.devin/workflows/design-to-token.md`, `docs/FIGMA-CONFIG.md` | components/, SKILL.md |
+| **Change to `docs/DESIGN.md` (propagate it)** | `docs/DESIGN.md`, `.devin/skills/design-language-sync/SKILL.md` | — |
+| **Pull design spec from Figma** | `AGENTS.md` §5, `.devin/skills/design-to-token/SKILL.md`, `docs/FIGMA-CONFIG.md` | components/, SKILL.md |
 | **Add / edit a token** | `AGENTS.md` §1–3, `tokens/primitives.json` or `semantic.json`, `.devin/rules/tokens.md` | components/ |
-| **Regenerate `theme.css`** | `AGENTS.md` §4, `tokens/*.json`, `.devin/workflows/docs-sync.md` | SKILL.md, README |
+| **Regenerate `theme.css`** | `AGENTS.md` §4, `tokens/*.json`, `.devin/skills/docs-sync/SKILL.md` | SKILL.md, README |
 | **Design a component in Figma** | `SKILL.md` §5, `docs/FIGMA-CONFIG.md`, `tokens/components.json` | .devin/rules/dependencies.md |
-| **Build a component in code** | `AGENTS.md` §7, `tokens/components.json`, `.devin/workflows/component-build.md`, `.devin/rules/dependencies.md` | inspirations/ |
-| **Set up Code Connect** | `docs/FIGMA-CONFIG.md` §Code Connect, `.devin/workflows/code-connect.md` | tokens/ |
+| **Build a component in code** | `AGENTS.md` §7, `tokens/components.json`, `.devin/skills/component-build/SKILL.md`, `.devin/rules/dependencies.md` | inspirations/ |
+| **Set up Code Connect** | `docs/FIGMA-CONFIG.md` §Code Connect, `.devin/skills/code-connect/SKILL.md` | tokens/ |
+| **Review a component spec** | `components/specs/{name}.md`, `tokens/components.json`, `AGENTS.md` §7 | inspirations/ |
 | **Accessibility review** | `.devin/rules/accessibility.md`, `SKILL.md` §7 | dependencies.md |
 | **Dependency / version decision** | `.devin/rules/dependencies.md` | tokens/, Figma files |
 
@@ -122,7 +123,7 @@ always the last file touched — never the first.**
 | **Naming convention** ⚠️ | `.devin/rules/tokens.md` | `docs/FIGMA-CONFIG.md`, `tokens/*.json`, Figma code-syntax | `CONTEXT.md`, `AGENTS.md` §6 |
 | **Dependency / stack rule** | `.devin/rules/dependencies.md` | — | — |
 | **Accessibility standard** | `.devin/rules/accessibility.md` | — | — |
-| **Process / workflow** | `.devin/workflows/*.md` | — | — |
+| **Process / workflow** | `.devin/skills/*/SKILL.md` | — | — |
 | **New file / token layer / surface** | (the file) | — | `CONTEXT.md` §1 + §3, `AGENTS.md` §6 |
 
 Two invariants to never break:
@@ -147,7 +148,7 @@ convention change (high blast radius).
 | `AGENTS.md` | coding agents (Devin/Cascade) | how to operate the repo | low |
 | `SKILL.md` | Figma AI / MCP chat | how to design + design-to-code | low |
 | `.devin/rules/*.md` | Devin (auto-applied) | hard constraints per domain | low |
-| `.devin/workflows/*.md` | any agent | repeatable step-by-step procedures | medium |
+| `.devin/skills/*/SKILL.md` | any agent | repeatable step-by-step procedures | medium |
 
 ### Design data context (the retrieval corpus)
 | File | Layer | Owned by | Editable in code? |
@@ -158,14 +159,35 @@ convention change (high blast radius).
 | `foundations/theme.css` | output | generator | ❌ generated |
 | `foundations/reset.css` | output | this repo | ✅ |
 
+### Component specs (derived from 2026-ultimate-portfolio)
+| File | Components covered |
+| --- | --- |
+| `components/specs/navigation.md` | Header, MobileNav |
+| `components/specs/hero.md` | HeroBanner, MediaHero, MobileHeroBanner |
+| `components/specs/footer.md` | Footer, FooterCta, FooterList |
+| `components/specs/bio-section.md` | BioSection, MobileBioSection |
+| `components/specs/display-text.md` | Headline, BannerLayout, TextSection, ArticleTitleSection, QuoteSection |
+| `components/specs/service-card.md` | ServiceItems, MobileServiceItems |
+| `components/specs/project-grid.md` | HomeProjects, ProjectThumbnail, SkillsMarquee |
+| `components/specs/project-presentation.md` | ProjectPresentation, MobileProjectPresentation |
+| `components/specs/experiment-card.md` | HomeExperiments, MobileHomeExperiments |
+| `components/specs/article.md` | ArticleMeta, ArticleParagraph, ArticleShare, ArticleExperiments (+mobile) |
+| `components/specs/media.md` | FullWidthImage, ImageSection, TwoColumnImages, ImageBackground (+mobile) |
+| `components/specs/slider.md` | AutoScrollSlider, DualDirectionSlider, InteractiveDragSlider, Marquee |
+| `components/specs/transitions.md` | PageTransition, Preloader, SmoothScroller |
+| `components/specs/work-experience.md` | WorkExperience |
+| `components/specs/values-section.md` | SelectedWorkCaptions |
+| `components/specs/next-experiment.md` | NextExperiment, MobileNextExperiment |
+
 ### Human docs
 | File | Purpose |
 | --- | --- |
 | `docs/DESIGN.md` | **foundation**: brand, design principles, style guide, business logic, scope, look & feel (upstream of tokens/rules) |
-| `docs/WORKFLOWS.md` | human prompt templates for Devin/Cascade — how to run each workflow |
-| `README.md` | master guide — repo structure, workflows, Figma MCP, good practices |
+| `docs/WORKFLOWS.md` | human prompt templates for Devin/Cascade — how to run each skill |
+| `README.md` | master guide — repo structure, skills, Figma MCP, good practices |
 | `docs/FIGMA-CONFIG.md` | canonical Figma setup (collections, Code Connect, naming) |
-| `inspirations/` | mood/reference imagery only — never a token source |
+| `prompts/` | Figma Make prompt templates (e.g. agency template) |
+| `components/README.md` | component library architecture, Figma mapping, microinteraction matrix |
 
 ---
 
@@ -205,7 +227,7 @@ Recommended metadata schema per chunk:
   "surface": "any",
   "task": ["token", "component"],
   "precedence": 1,
-  "updated": "2026-07-27"
+  "updated": "2026-08-27"
 }
 ```
 
@@ -216,5 +238,5 @@ Recommended metadata schema per chunk:
 1. Load `CONTEXT.md` (this file).
 2. Resolve task type in §1 → load only that row.
 3. Honour precedence in §2 for every value.
-4. Follow the matching `.devin/workflow` if one exists.
+4. Follow the matching `.devin/skills/*/SKILL.md` if one exists.
 5. On finish, update any changed token JSON and re-run docs-sync.
