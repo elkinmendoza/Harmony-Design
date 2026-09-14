@@ -202,6 +202,7 @@ Harmony/
 **Figma file keys**
 - Harmony design file: `rna1ko0KAMxJygWQiWQ9KT`
 - Portfolio reference file: `TRUjofEwcRW6XLyxeL9Gxh`
+- Figma Community file: [Harmony — Multi-Purpose Design System Blueprint](https://www.figma.com/community/file/1681137774778422562/harmony-multi-purpose-design-system-blueprint)
 
 ---
 
