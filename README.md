@@ -199,9 +199,7 @@ Harmony/
     └── mobile/                  ← Expo 53 + React Native 0.79
 ```
 
-**Figma file keys**
-- Harmony design file: `rna1ko0KAMxJygWQiWQ9KT`
-- Portfolio reference file: `TRUjofEwcRW6XLyxeL9Gxh`
+**Figma files**
 - Figma Community file: [Harmony — Multi-Purpose Design System Blueprint](https://www.figma.com/community/file/1681137774778422562/harmony-multi-purpose-design-system-blueprint)
 
 ---
@@ -346,7 +344,7 @@ Use when you have exported an updated `Colour` variable collection from Figma.
 4. **Set up Code Connect:**
    ```
    Create Code Connect for [Component].
-   Figma file key: rna1ko0KAMxJygWQiWQ9KT, node id: [id].
+   Figma file key: [file key], node id: [id].
    Follow .devin/skills/code-connect/SKILL.md.
    ```
 
@@ -365,7 +363,7 @@ design context directly from the Figma file — no manual copy-paste.
 ### Requirements
 - Windsurf / Cascade with Figma MCP server configured.
 - A node-specific Figma URL for any `get_design_context` or Code Connect call
-  (URL must include `?node-id=`, e.g. `https://figma.com/design/rna1ko0KAMxJygWQiWQ9KT/...?node-id=1-2`).
+  (URL must include `?node-id=`, e.g. `https://figma.com/design/[file-key]/...?node-id=1-2`).
 
 ### Key MCP tools
 
